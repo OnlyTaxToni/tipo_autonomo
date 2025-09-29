@@ -20,7 +20,7 @@ const results: Record<1 | 2 | 3, Result> = {
     title: "La autónoma apurada",
     emoji: "⏰",
     description: "Tu vida es un sprint cada trimestre.",
-    advice: "Pon el cronómetro a tu favor y evita recargos."
+    advice: "Ten tu 'caja de impuestos': separa un % fijo de cada ingreso y olvídate de sustos"
   },
   3: {
     title: "La autónoma pasota",
