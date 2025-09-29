@@ -41,6 +41,17 @@ export default function ResultScreen({ result, answers, onRestart }: ResultScree
 
   return (
     <div className="flex items-center justify-center min-h-screen p-4">
+      {/* Header con logo */}
+      <div className="absolute top-0 left-0 right-0 p-6">
+        <div className="flex justify-center">
+          <img 
+            src="/onlytax oscuro.png" 
+            alt="OnlyTax" 
+            className="h-8 md:h-10"
+          />
+        </div>
+      </div>
+      
       <div className="max-w-3xl mx-auto w-full">
         {/* Resultado */}
         <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 mb-8 transform hover:scale-[1.02] transition-transform duration-300">

@@ -95,6 +95,17 @@ export default function QuizScreen({ answers, onAnswer, onFinish }: QuizScreenPr
 
   return (
     <div className="flex items-center justify-center min-h-screen p-4">
+      {/* Header con logo */}
+      <div className="absolute top-0 left-0 right-0 p-6">
+        <div className="flex justify-center">
+          <img 
+            src="/onlytax oscuro.png" 
+            alt="OnlyTax" 
+            className="h-8 md:h-10"
+          />
+        </div>
+      </div>
+      
       <div className="max-w-3xl mx-auto w-full">
         {/* Barra de progreso */}
         <div className="mb-8">
