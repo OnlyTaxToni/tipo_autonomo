@@ -35,18 +35,16 @@ function App() {
   };
 
   const finishQuiz = () => {
-    // Calcular resultado basado en puntuación
+    // Calcular puntuación directa (sin normalizar)
     const scoreMap = { A: 2, B: 1, C: 0.5 };
     const totalScore = quizState.answers.reduce((sum, answer) => sum + scoreMap[answer], 0);
-    const maxPossibleScore = quizState.answers.length * 2; // 5 preguntas * 2 = 10 puntos máximo
-    const normalizedScore = (totalScore / maxPossibleScore) * 10; // Escala 0-10
     
     let result: 1 | 2 | 3;
     
-    // Asignar resultado basado en puntuación
-    if (normalizedScore < 5) {
+    // Asignar resultado basado en puntuación directa
+    if (totalScore < 5) {
       result = 3; // Autónoma pasota
-    } else if (normalizedScore < 7) {
+    } else if (totalScore < 7) {
       result = 2; // Autónoma apurada
     } else {
       result = 1; // Autónoma organizada

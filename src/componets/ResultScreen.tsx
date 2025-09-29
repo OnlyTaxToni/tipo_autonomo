@@ -34,28 +34,21 @@ const results: Record<1 | 2 | 3, Result> = {
 const calculateScore = (answers: Answer[]): number => {
   const scoreMap = { A: 2, B: 1, C: 0.5 };
   const totalScore = answers.reduce((sum, answer) => sum + scoreMap[answer], 0);
-  // Normalizar a escala 1-10
-  const maxPossibleScore = answers.length * 2; // Máximo si todas fueran A
-  const minPossibleScore = answers.length * 0.5; // Mínimo si todas fueran C
-  
-  // Escalar linealmente de 1 a 10
-  const normalizedScore = 1 + ((totalScore - minPossibleScore) / (maxPossibleScore - minPossibleScore)) * 9;
-  return Math.round(normalizedScore * 10) / 10; // Redondear a 1 decimal
+  // Devolver puntuación directa (rango: 2.5 a 10)
+  return totalScore;
 };
 
 // Función para obtener el color de la puntuación
 const getScoreColor = (score: number): string => {
-  if (score >= 8) return 'text-green-600';
-  if (score >= 6) return 'text-yellow-600';
-  if (score >= 4) return 'text-orange-600';
+  if (score >= 7) return 'text-green-600';
+  if (score >= 5) return 'text-yellow-600';
   return 'text-red-600';
 };
 
 // Función para obtener el mensaje de la puntuación
 const getScoreMessage = (score: number): string => {
-  if (score >= 8) return '¡Excelente organización fiscal!';
-  if (score >= 6) return 'Buen nivel de organización';
-  if (score >= 4) return 'Hay margen de mejora';
+  if (score >= 7) return '¡Excelente organización fiscal!';
+  if (score >= 5) return 'Buen nivel de organización';
   return 'Necesitas ayuda urgente';
 };
 
