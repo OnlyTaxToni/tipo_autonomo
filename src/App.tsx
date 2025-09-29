@@ -35,21 +35,24 @@ function App() {
   };
 
   const finishQuiz = () => {
-    // Calcular resultado basado en mayoría
-    const counts = { A: 0, B: 0, C: 0 };
-    quizState.answers.forEach(answer => {
-      counts[answer]++;
-    });
-
+    // Calcular resultado basado en puntuación
+    const scoreMap = { A: 2, B: 1, C: 0.5 };
+    const totalScore = quizState.answers.reduce((sum, answer) => sum + scoreMap[answer], 0);
+    const maxPossibleScore = quizState.answers.length * 2;
+    const minPossibleScore = quizState.answers.length * 0.5;
+    
+    // Normalizar a escala 1-10
+    const normalizedScore = 1 + ((totalScore - minPossibleScore) / (maxPossibleScore - minPossibleScore)) * 9;
+    
     let result: 1 | 2 | 3;
     
-    // Encontrar la opción con más respuestas
-    if (counts.A >= counts.B && counts.A >= counts.C) {
-      result = 1;
-    } else if (counts.B >= counts.C) {
-      result = 2;
+    // Asignar resultado basado en puntuación
+    if (normalizedScore < 5) {
+      result = 3; // Autónoma pasota
+    } else if (normalizedScore <= 7) {
+      result = 2; // Autónoma apurada
     } else {
-      result = 3;
+      result = 1; // Autónoma organizada
     }
 
     setQuizState(prev => ({
