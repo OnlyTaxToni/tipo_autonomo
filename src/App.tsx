@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import WelcomeScreen from './components/WelcomeScreen';
-import QuizScreen from './components/QuizScreen';
-import ResultScreen from './components/ResultScreen';
+import WelcomeScreen from './componets/WelcomeScreen';
+import QuizScreen from './componets/QuizScreen';
+import ResultScreen from './componets/ResultScreen';
 
 export type Answer = 'A' | 'B' | 'C';
 
