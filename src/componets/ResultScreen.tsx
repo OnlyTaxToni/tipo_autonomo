@@ -44,11 +44,18 @@ export default function ResultScreen({ result, answers, onRestart }: ResultScree
       {/* Header con logo */}
       <div className="absolute top-0 left-0 right-0 p-6">
         <div className="flex justify-center">
-          <img 
-            src="/onlytax oscuro.png" 
-            alt="OnlyTax" 
-            className="h-8 md:h-10"
-          />
+          <a 
+            href="https://onlytax.es" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity duration-200"
+          >
+            <img 
+              src="/onlytax oscuro.png" 
+              alt="OnlyTax" 
+              className="h-8 md:h-10"
+            />
+          </a>
         </div>
       </div>
       
