@@ -30,6 +30,35 @@ const results: Record<1 | 2 | 3, Result> = {
   }
 };
 
+// Función para calcular la puntuación
+const calculateScore = (answers: Answer[]): number => {
+  const scoreMap = { A: 2, B: 1, C: 0.5 };
+  const totalScore = answers.reduce((sum, answer) => sum + scoreMap[answer], 0);
+  // Normalizar a escala 1-10
+  const maxPossibleScore = answers.length * 2; // Máximo si todas fueran A
+  const minPossibleScore = answers.length * 0.5; // Mínimo si todas fueran C
+  
+  // Escalar linealmente de 1 a 10
+  const normalizedScore = 1 + ((totalScore - minPossibleScore) / (maxPossibleScore - minPossibleScore)) * 9;
+  return Math.round(normalizedScore * 10) / 10; // Redondear a 1 decimal
+};
+
+// Función para obtener el color de la puntuación
+const getScoreColor = (score: number): string => {
+  if (score >= 8) return 'text-green-600';
+  if (score >= 6) return 'text-yellow-600';
+  if (score >= 4) return 'text-orange-600';
+  return 'text-red-600';
+};
+
+// Función para obtener el mensaje de la puntuación
+const getScoreMessage = (score: number): string => {
+  if (score >= 8) return '¡Excelente organización fiscal!';
+  if (score >= 6) return 'Buen nivel de organización';
+  if (score >= 4) return 'Hay margen de mejora';
+  return 'Necesitas ayuda urgente';
+};
+
 interface ResultScreenProps {
   result: 1 | 2 | 3;
   answers: Answer[];
@@ -38,6 +67,9 @@ interface ResultScreenProps {
 
 export default function ResultScreen({ result, answers, onRestart }: ResultScreenProps) {
   const currentResult = results[result];
+  const score = calculateScore(answers);
+  const scoreColor = getScoreColor(score);
+  const scoreMessage = getScoreMessage(score);
 
   return (
     <div className="flex items-center justify-center min-h-screen p-4">
@@ -72,6 +104,21 @@ export default function ResultScreen({ result, answers, onRestart }: ResultScree
             <p className="text-xl md:text-2xl text-gray-600 mb-6 leading-relaxed">
               {currentResult.description}
             </p>
+            
+            {/* Sistema de puntuación */}
+            <div className="mb-6 p-6 rounded-2xl bg-gray-50 border-2 border-gray-200">
+              <h3 className="text-lg font-bold text-gray-800 mb-3">📊 Tu puntuación de organización fiscal</h3>
+              <div className="flex items-center justify-center gap-4 mb-2">
+                <span className="text-4xl font-bold" style={{ color: '#434C8F' }}>
+                  {score}
+                </span>
+                <span className="text-2xl text-gray-500">/10</span>
+              </div>
+              <p className={`text-lg font-semibold ${scoreColor}`}>
+                {scoreMessage}
+              </p>
+            </div>
+            
             <div className="p-6 rounded-2xl" style={{ backgroundColor: '#D9DAFA' }}>
               <h3 className="text-lg font-bold text-gray-800 mb-2">💡 Tu consejo personalizado:</h3>
               <p className="text-lg text-gray-700">
