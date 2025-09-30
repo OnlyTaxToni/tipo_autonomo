@@ -58,19 +58,19 @@ const calculateScore = (answers: Answer[]): number => {
 
 // Función para obtener el color de la puntuación
 const getScoreColor = (score: number): string => {
-  if (score >= 8.5) return 'text-green-600';
-  if (score >= 7) return 'text-blue-600';
-  if (score >= 5.5) return 'text-yellow-600';
-  if (score >= 4) return 'text-orange-600';
+  if (score >= 7.5) return 'text-green-600';
+  if (score >= 6) return 'text-blue-600';
+  if (score >= 4.5) return 'text-yellow-600';
+  if (score >= 3) return 'text-orange-600';
   return 'text-red-600';
 };
 
 // Función para obtener el mensaje de la puntuación
 const getScoreMessage = (score: number): string => {
-  if (score >= 8.5) return '¡Excelente organización fiscal!';
-  if (score >= 7) return 'Muy buen nivel de organización';
-  if (score >= 5.5) return 'Nivel de organización aceptable';
-  if (score >= 4) return 'Necesitas mejorar la organización';
+  if (score >= 7.5) return '¡Excelente organización fiscal!';
+  if (score >= 6) return 'Muy buen nivel de organización';
+  if (score >= 4.5) return 'Nivel de organización aceptable';
+  if (score >= 3) return 'Necesitas mejorar la organización';
   return 'Necesitas ayuda urgente';
 };
 

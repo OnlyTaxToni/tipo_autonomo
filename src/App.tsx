@@ -50,7 +50,7 @@ function App() {
       result = 2; // Autónoma apurada (6-7 puntos)
     } else if (totalScore >= 4.5) {
       result = 4; // Autónoma creativa (4.5-5.5 puntos)
-    } else if (totalScore >= 3.5) {
+    } else if (totalScore >= 3) {
       result = 6; // Autónoma improvisada (3.5-4 puntos)
     } else {
       result = 3; // Autónoma pasota (2.5-3 puntos)
