@@ -42,33 +42,34 @@ function App() {
     let result: 1 | 2 | 3 | 4 | 5 | 6;
     
     // Rangos exactos - ORDEN CRÍTICO: de mayor a menor puntuación
-    // ORDEN CRÍTICO: Evaluar de mayor a menor puntuación
+    // Rangos exactos según especificación:
     // 9-10 puntos: Autónoma organizada (resultado 1)
+    // 7.5-8.5 puntos: Autónoma precavida (resultado 2)
+    // 6-7 puntos: Autónoma apurada (resultado 3)
+    // 4.5-5.5 puntos: Autónoma creativa (resultado 4)
+    // 3-4 puntos: Autónoma improvisada (resultado 5)
+    // 2.5 puntos: Autónoma pasota (resultado 6)
+    
     if (totalScore >= 9) {
-      result = 1; // 🗂️ Autónoma organizada (9-10 puntos)
+      result = 1; // 🗂️ Autónoma organizada
     } 
-    // 7.5-8.9 puntos: Autónoma precavida (resultado 5)
-    else if (totalScore >= 7.5) {
-      result = 5; // 🛡️ Autónoma precavida (7.5-8.5 puntos)
+    else if (totalScore >= 7.5 && totalScore <= 8.5) {
+      result = 2; // 🛡️ Autónoma precavida
     } 
-    // 6-7.4 puntos: Autónoma apurada (resultado 2)
-    else if (totalScore >= 6) {
-      result = 2; // ⏰ Autónoma apurada (6-7 puntos)
+    else if (totalScore >= 6 && totalScore <= 7) {
+      result = 3; // ⏰ Autónoma apurada
     } 
-    // 4.5-5.9 puntos: Autónoma creativa (resultado 4)
-    else if (totalScore >= 4.5) {
+    else if (totalScore >= 4.5 && totalScore <= 5.5) {
       result = 4; // 🎨 Autónoma creativa (4.5-5.5 puntos)
     } 
-    // 3-4.4 puntos: Autónoma improvisada (resultado 6)
-    else if (totalScore >= 3) {
-      result = 6; // 🎯 Autónoma improvisada (3-4 puntos)
+    else if (totalScore >= 3 && totalScore <= 4) {
+      result = 5; // 🎯 Autónoma improvisada
     } 
-    // 2.5 puntos: Autónoma pasota (resultado 3)
     else {
-      result = 3; // 😅 Autónoma pasota (2.5 puntos)
+      result = 6; // 😅 Autónoma pasota
     }
 
-    console.log(`DEBUG: Puntuación total: ${totalScore} → Resultado: ${result} (${result === 1 ? 'Organizada' : result === 5 ? 'Precavida' : result === 2 ? 'Apurada' : result === 4 ? 'Creativa' : result === 6 ? 'Improvisada' : 'Pasota'})`);
+    console.log(`DEBUG: Puntuación total: ${totalScore} → Resultado: ${result} (${result === 1 ? 'Organizada' : result === 2 ? 'Precavida' : result === 3 ? 'Apurada' : result === 4 ? 'Creativa' : result === 5 ? 'Improvisada' : 'Pasota'})`);
 
     setQuizState(prev => ({
       ...prev,

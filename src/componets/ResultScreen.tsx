@@ -32,6 +32,23 @@ const personalityProfiles: Record<1 | 2 | 3 | 4 | 5 | 6, PersonalityProfile> = {
     ]
   },
   2: {
+    title: "La autónoma precavida",
+    emoji: "🛡️",
+    description: "Siempre va un paso por delante, busca seguridad y asesoría.",
+    characteristics: [
+      "Planifica con mucha anticipación",
+      "Busca asesoramiento profesional regularmente",
+      "Prefiere la seguridad a la improvisación",
+      "Mantiene reservas para imprevistos"
+    ],
+    advice: "Perfecto enfoque. Considera herramientas que te den aún más control y previsión.",
+    recommendations: [
+      "Explora herramientas de análisis predictivo",
+      "Mantén tu asesoría pero añade tecnología avanzada",
+      "Considera seguros y coberturas adicionales"
+    ]
+  },
+  3: {
     title: "La autónoma apurada",
     emoji: "⏰",
     description: "Lo hace todo a última hora, con estrés, pero llega.",
@@ -46,23 +63,6 @@ const personalityProfiles: Record<1 | 2 | 3 | 4 | 5 | 6, PersonalityProfile> = {
       "Implementa un sistema de separación automática de impuestos",
       "Usa recordatorios y calendarios fiscales",
       "Considera herramientas que automaticen tus procesos"
-    ]
-  },
-  3: {
-    title: "La autónoma pasota",
-    emoji: "😅",
-    description: "Vive al día, procrastina, ignora el tema fiscal hasta que explota.",
-    characteristics: [
-      "Evita pensar en temas fiscales",
-      "Procrastina las tareas administrativas",
-      "Se siente abrumada por la burocracia",
-      "Prefiere enfocarse solo en su trabajo creativo"
-    ],
-    advice: "Déjalo en manos de alguien que sí lo mire (nosotros 👋).",
-    recommendations: [
-      "Busca asesoría profesional integral",
-      "Delega completamente la gestión fiscal",
-      "Enfócate en lo que mejor sabes hacer"
     ]
   },
   4: {
@@ -83,23 +83,6 @@ const personalityProfiles: Record<1 | 2 | 3 | 4 | 5 | 6, PersonalityProfile> = {
     ]
   },
   5: {
-    title: "La autónoma precavida",
-    emoji: "🛡️",
-    description: "Siempre va un paso por delante, busca seguridad y asesoría.",
-    characteristics: [
-      "Planifica con mucha anticipación",
-      "Busca asesoramiento profesional regularmente",
-      "Prefiere la seguridad a la improvisación",
-      "Mantiene reservas para imprevistos"
-    ],
-    advice: "Perfecto enfoque. Considera herramientas que te den aún más control y previsión.",
-    recommendations: [
-      "Explora herramientas de análisis predictivo",
-      "Mantén tu asesoría pero añade tecnología avanzada",
-      "Considera seguros y coberturas adicionales"
-    ]
-  },
-  6: {
     title: "La autónoma improvisada",
     emoji: "🎯",
     description: "Se lanzó sin plan, aprende sobre la marcha, comete errores pero se adapta.",
@@ -115,6 +98,23 @@ const personalityProfiles: Record<1 | 2 | 3 | 4 | 5 | 6, PersonalityProfile> = {
       "Mantén tu flexibilidad pero añade organización básica",
       "Busca formación práctica en gestión fiscal"
     ]
+  },
+  6: {
+    title: "La autónoma pasota",
+    emoji: "😅",
+    description: "Vive al día, procrastina, ignora el tema fiscal hasta que explota.",
+    characteristics: [
+      "Evita pensar en temas fiscales",
+      "Procrastina las tareas administrativas",
+      "Se siente abrumada por la burocracia",
+      "Prefiere enfocarse solo en su trabajo creativo"
+    ],
+    advice: "Déjalo en manos de alguien que sí lo mire (nosotros 👋).",
+    recommendations: [
+      "Busca asesoría profesional integral",
+      "Delega completamente la gestión fiscal",
+      "Enfócate en lo que mejor sabes hacer"
+    ]
   }
 };
 
@@ -127,30 +127,30 @@ const calculateScore = (answers: Answer[]): number => {
 // Función para determinar el rango de puntuación
 const getScoreRange = (score: number): string => {
   if (score >= 9) return '9-10 puntos';
-  if (score >= 7.5) return '7.5-8.9 puntos';
-  if (score >= 6) return '6-7.4 puntos';
-  if (score >= 4.5) return '4.5-5.9 puntos';
-  if (score >= 3) return '3-4.4 puntos';
+  if (score >= 7.5 && score <= 8.5) return '7.5-8.5 puntos';
+  if (score >= 6 && score <= 7) return '6-7 puntos';
+  if (score >= 4.5 && score <= 5.5) return '4.5-5.5 puntos';
+  if (score >= 3 && score <= 4) return '3-4 puntos';
   return '2.5 puntos';
 };
 
 // Función para obtener el color de la puntuación
 const getScoreColor = (score: number): string => {
   if (score >= 9) return 'text-green-600';
-  if (score >= 7.5) return 'text-blue-600';
-  if (score >= 6) return 'text-indigo-600';
-  if (score >= 4.5) return 'text-purple-600';
-  if (score >= 3) return 'text-orange-600';
+  if (score >= 7.5 && score <= 8.5) return 'text-blue-600';
+  if (score >= 6 && score <= 7) return 'text-indigo-600';
+  if (score >= 4.5 && score <= 5.5) return 'text-purple-600';
+  if (score >= 3 && score <= 4) return 'text-orange-600';
   return 'text-red-600';
 };
 
 // Función para obtener el mensaje de evaluación
 const getEvaluationMessage = (score: number): string => {
   if (score >= 9) return '¡Excelente nivel de organización fiscal!';
-  if (score >= 7.5) return 'Muy buen nivel de planificación y precaución';
-  if (score >= 6) return 'Buen nivel pero con tendencia a la urgencia';
-  if (score >= 4.5) return 'Enfoque creativo que necesita más estructura';
-  if (score >= 3) return 'Necesitas apoyo para mejorar tu organización';
+  if (score >= 7.5 && score <= 8.5) return 'Muy buen nivel de planificación y precaución';
+  if (score >= 6 && score <= 7) return 'Buen nivel pero con tendencia a la urgencia';
+  if (score >= 4.5 && score <= 5.5) return 'Enfoque creativo que necesita más estructura';
+  if (score >= 3 && score <= 4) return 'Necesitas apoyo para mejorar tu organización';
   return 'Necesitas apoyo profesional urgente';
 };
 
