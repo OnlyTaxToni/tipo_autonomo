@@ -41,16 +41,16 @@ function App() {
     
     let result: 1 | 2 | 3 | 4 | 5 | 6;
     
-    // Sistema de clasificación exacto por rangos
-    if (totalScore >= 9 && totalScore <= 10) {
+    // Rangos exactos - ORDEN CRÍTICO: de mayor a menor puntuación
+    if (totalScore >= 9) {
       result = 1; // Autónoma organizada (9-10 puntos)
-    } else if (totalScore >= 7.5 && totalScore <= 8.5) {
+    } else if (totalScore >= 7.5) {
       result = 5; // Autónoma precavida (7.5-8.5 puntos)
-    } else if (totalScore >= 6 && totalScore <= 7) {
+    } else if (totalScore >= 6) {
       result = 2; // Autónoma apurada (6-7 puntos)
-    } else if (totalScore >= 4.5 && totalScore <= 5.5) {
+    } else if (totalScore >= 4.5) {
       result = 4; // Autónoma creativa (4.5-5.5 puntos)
-    } else if (totalScore >= 3 && totalScore <= 4) {
+    } else if (totalScore >= 3) {
       result = 6; // Autónoma improvisada (3-4 puntos)
     } else {
       result = 3; // Autónoma pasota (2.5 puntos)
