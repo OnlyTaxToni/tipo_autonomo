@@ -2,28 +2,24 @@ import React, { useState } from 'react';
 import WelcomeScreen from './componets/WelcomeScreen';
 import QuizScreen from './componets/QuizScreen';
 import ResultScreen from './componets/ResultScreen';
-
-export type Answer = 'A' | 'B' | 'C';
+import type { Answer } from './scoring';
 
 export interface QuizState {
   answers: Answer[];
   currentScreen: 'welcome' | 'quiz' | 'result';
-  result: 1 | 2 | 3 | 4 | 5 | 6 | null;
 }
 
 function App() {
   const [quizState, setQuizState] = useState<QuizState>({
     answers: [],
-    currentScreen: 'welcome',
-    result: null
+    currentScreen: 'welcome'
   });
 
   const startQuiz = () => {
     setQuizState(prev => ({
       ...prev,
       currentScreen: 'quiz',
-      answers: [],
-      result: null
+      answers: []
     }));
   };
 
@@ -35,68 +31,17 @@ function App() {
   };
 
   const finishQuiz = () => {
-    // SISTEMA DE PUNTUACIÓN RECALIBRADO - SOLO MÚLTIPLOS DE 0.5
-    // Diseñado para distribución perfecta en los 6 rangos obligatorios
-    const questionScores = [
-      // Pregunta 1: Gestión de facturas - Organización fundamental
-      { A: 2.0, B: 1.0, C: 0.5 },  // Máxima organización vs básica vs mínima
-      // Pregunta 2: Presentación de impuestos - Planificación
-      { A: 2.0, B: 1.5, C: 0.5 },  // Preparación vs último momento vs delegación
-      // Pregunta 3: Trabajo con marcas extranjeras - Conocimiento especializado
-      { A: 2.0, B: 1.0, C: 0.5 },  // Investigación vs improvisación vs evasión
-      // Pregunta 4: Tickets de gastos - Control de deducciones
-      { A: 2.0, B: 1.5, C: 0.5 },  // Archivo meticuloso vs acumulación vs pérdida
-      // Pregunta 5: Relación con Hacienda - Cumplimiento fiscal
-      { A: 2.0, B: 1.0, C: 0.5 }   // Correcta vs conflictiva vs problemática
-    ];
-
-    let totalScore = 0;
-    quizState.answers.forEach((answer, index) => {
-      totalScore += questionScores[index][answer];
-    });
-
-    // RANGOS EXACTOS CON INCREMENTOS DE 0.5 - SIN SOLAPAMIENTOS
-    let result: 1 | 2 | 3 | 4 | 5 | 6;
-    
-    if (totalScore >= 9.0) {
-      result = 1; // 🗂️ Autónoma organizada (9.0-10.0)
-    } else if (totalScore >= 8.0) {
-      result = 2; // 🛡️ Autónoma precavida (8.0-8.5)
-    } else if (totalScore >= 6.5) {
-      result = 3; // ⏰ Autónoma apurada (6.5-7.5)
-    } else if (totalScore >= 5.0) {
-      result = 4; // 🎨 Autónoma creativa (5.0-6.0)
-    } else if (totalScore >= 3.5) {
-      result = 5; // 🎯 Autónoma improvisada (3.5-4.5)
-    } else {
-      result = 6; // 😅 Autónoma pasota (2.5-3.0)
-    }
-
-    console.log(`🔍 SISTEMA DE PUNTUACIÓN CORREGIDO (INCREMENTOS 0.5):`);
-    console.log(`   Respuestas: ${quizState.answers.join(', ')}`);
-    console.log(`   Puntuación total: ${totalScore.toFixed(1)}/10.0`);
-    console.log(`   Resultado asignado: ${result}`);
-    console.log(`   Perfil: ${
-      result === 1 ? '🗂️ Autónoma organizada (9.0-10.0)' :
-      result === 2 ? '🛡️ Autónoma precavida (8.0-8.5)' :
-      result === 3 ? '⏰ Autónoma apurada (6.5-7.5)' :
-      result === 4 ? '🎨 Autónoma creativa (5.0-6.0)' :
-      result === 5 ? '🎯 Autónoma improvisada (3.5-4.5)' :
-      '😅 Autónoma pasota (2.5-3.0)'
-    }`);
-
+    // La lógica de puntuación ahora está en el módulo scoring.ts
     setQuizState(prev => ({
       ...prev,
-      currentScreen: 'result',
-      result
+      currentScreen: 'result'
     }));
   };
 
   const resetQuiz = () => {
     setQuizState({
       answers: [],
-      currentScreen: 'welcome',
-      result: null
+      currentScreen: 'welcome'
     });
   };
 
@@ -131,9 +76,8 @@ function App() {
         />
       )}
       
-      {quizState.currentScreen === 'result' && quizState.result && (
+      {quizState.currentScreen === 'result' && (
         <ResultScreen 
-          result={quizState.result}
           answers={quizState.answers}
           onRestart={resetQuiz}
         />

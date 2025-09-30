@@ -1,6 +1,6 @@
 import React from 'react';
 import { Check } from 'lucide-react';
-import type { Answer } from '../App';
+import type { Answer } from '../scoring';
 
 interface Question {
   id: number;
