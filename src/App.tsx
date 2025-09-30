@@ -35,44 +35,55 @@ function App() {
   };
 
   const finishQuiz = () => {
-    // Sistema de puntuación: A=2, B=1, C=0.5
-    const scoreMap = { A: 2, B: 1, C: 0.5 };
-    const totalScore = quizState.answers.reduce((sum, answer) => sum + scoreMap[answer], 0);
-    
+    // SISTEMA DE PUNTUACIÓN COMPLETAMENTE NUEVO
+    // Cada respuesta tiene un valor específico diseñado para distribuir correctamente
+    const questionScores = [
+      // Pregunta 1: Gestión de facturas
+      { A: 2.0, B: 1.2, C: 0.4 },  // Organización vs desorganización
+      // Pregunta 2: Presentación de impuestos  
+      { A: 2.0, B: 0.8, C: 0.6 },  // Preparación vs procrastinación vs delegación
+      // Pregunta 3: Trabajo con marcas extranjeras
+      { A: 2.0, B: 0.6, C: 0.4 },  // Conocimiento vs improvisación vs ignorancia
+      // Pregunta 4: Tickets de gastos
+      { A: 2.0, B: 1.0, C: 0.2 },  // Orden vs acumulación vs pérdida
+      // Pregunta 5: Relación con Hacienda
+      { A: 2.0, B: 1.4, C: 0.4 }   // Correcta vs conflictiva vs tensa
+    ];
+
+    let totalScore = 0;
+    quizState.answers.forEach((answer, index) => {
+      totalScore += questionScores[index][answer];
+    });
+
+    // RANGOS EXACTOS OBLIGATORIOS - SIN SOLAPAMIENTOS
     let result: 1 | 2 | 3 | 4 | 5 | 6;
     
-    // RANGOS EXACTOS CORREGIDOS - ORDEN CRÍTICO: de mayor a menor puntuación
-    // 9.0-10.0 puntos: Autónoma organizada (resultado 1) ✅
-    // 7.5-8.9 puntos: Autónoma precavida (resultado 2) ✅
-    // 6.0-7.4 puntos: Autónoma apurada (resultado 3) ✅
-    // 4.5-5.9 puntos: Autónoma creativa (resultado 4) ✅
-    // 3.0-4.4 puntos: Autónoma improvisada (resultado 5) ✅
-    // 2.5-2.9 puntos: Autónoma pasota (resultado 6) ✅
-    
-    if (totalScore >= 9.0 && totalScore <= 10.0) {
-      result = 1; // 🗂️ Autónoma organizada
-    } 
-    else if (totalScore >= 7.5 && totalScore <= 8.9) {
-      result = 2; // 🛡️ Autónoma precavida
-    } 
-    else if (totalScore >= 6.0 && totalScore <= 7.4) {
-      result = 3; // ⏰ Autónoma apurada
-    } 
-    else if (totalScore >= 4.5 && totalScore <= 5.9) {
-      result = 4; // 🎨 Autónoma creativa (4.5-5.5 puntos)
-    } 
-    else if (totalScore >= 3.0 && totalScore <= 4.4) {
-      result = 5; // 🎯 Autónoma improvisada
-    } 
-    else {
-      result = 6; // 😅 Autónoma pasota
+    if (totalScore >= 9.0) {
+      result = 1; // 🗂️ Autónoma organizada (9.0-10.0)
+    } else if (totalScore >= 7.5) {
+      result = 2; // 🛡️ Autónoma precavida (7.5-8.9)
+    } else if (totalScore >= 6.0) {
+      result = 3; // ⏰ Autónoma apurada (6.0-7.4)
+    } else if (totalScore >= 4.5) {
+      result = 4; // 🎨 Autónoma creativa (4.5-5.9)
+    } else if (totalScore >= 3.0) {
+      result = 5; // 🎯 Autónoma improvisada (3.0-4.4)
+    } else {
+      result = 6; // 😅 Autónoma pasota (<3.0)
     }
 
-    console.log(`🔍 DEBUG PUNTUACIÓN:`);
+    console.log(`🔍 SISTEMA DE PUNTUACIÓN RECALIBRADO:`);
     console.log(`   Respuestas: ${quizState.answers.join(', ')}`);
-    console.log(`   Puntuación total: ${totalScore}/10`);
+    console.log(`   Puntuación total: ${totalScore.toFixed(1)}/10.0`);
     console.log(`   Resultado asignado: ${result}`);
-    console.log(`   Perfil: ${result === 1 ? '🗂️ Autónoma organizada' : result === 2 ? '🛡️ Autónoma precavida' : result === 3 ? '⏰ Autónoma apurada' : result === 4 ? '🎨 Autónoma creativa' : result === 5 ? '🎯 Autónoma improvisada' : '😅 Autónoma pasota'}`);
+    console.log(`   Perfil: ${
+      result === 1 ? '🗂️ Autónoma organizada (9.0-10.0)' :
+      result === 2 ? '🛡️ Autónoma precavida (7.5-8.9)' :
+      result === 3 ? '⏰ Autónoma apurada (6.0-7.4)' :
+      result === 4 ? '🎨 Autónoma creativa (4.5-5.9)' :
+      result === 5 ? '🎯 Autónoma improvisada (3.0-4.4)' :
+      '😅 Autónoma pasota (<3.0)'
+    }`);
 
     setQuizState(prev => ({
       ...prev,

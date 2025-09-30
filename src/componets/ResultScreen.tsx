@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { RefreshCw } from 'lucide-react';
 import type { Answer } from '../App';
 
-// Definición completa de perfiles de personalidad autónoma
+// PERFILES COMPLETAMENTE REDEFINIDOS CON COHERENCIA CONCEPTUAL
 interface PersonalityProfile {
   title: string;
   emoji: string;
@@ -10,147 +10,163 @@ interface PersonalityProfile {
   characteristics: string[];
   advice: string;
   recommendations: string[];
+  scoreRange: string;
 }
 
-// Sistema completo de 6 personalidades autónomas
+// SISTEMA COMPLETO DE 6 PERSONALIDADES RECALIBRADAS
 const personalityProfiles: Record<1 | 2 | 3 | 4 | 5 | 6, PersonalityProfile> = {
   1: {
     title: "La autónoma organizada",
     emoji: "🗂️",
-    description: "Meticulosa, planifica todo, tiene su Excel y las facturas al día.",
+    description: "Meticulosa, planifica todo, tiene su Excel y las facturas al día. Eres la reina del control fiscal.",
+    scoreRange: "9.0-10.0 puntos",
     characteristics: [
-      "Mantiene registros detallados de ingresos y gastos",
-      "Planifica con anticipación sus obligaciones fiscales",
-      "Tiene sistemas organizados para documentos",
-      "Cumple siempre con los plazos establecidos"
+      "Mantiene registros detallados y digitalizados de todos sus movimientos",
+      "Planifica con meses de anticipación sus obligaciones fiscales",
+      "Tiene sistemas automatizados para documentos y facturación",
+      "Cumple siempre con los plazos y conoce todas las deducciones",
+      "Relación transparente y correcta con Hacienda"
     ],
-    advice: "Revisa deducciones avanzadas, hasta lo más ordenado puede optimizar más.",
+    advice: "Eres un ejemplo a seguir. Revisa deducciones avanzadas, hasta lo más ordenado puede optimizar más.",
     recommendations: [
-      "Explora nuevas herramientas de automatización fiscal",
-      "Considera asesoría especializada para optimización avanzada",
-      "Mantén tu excelente sistema pero busca eficiencias adicionales"
+      "Explora herramientas de automatización fiscal avanzada",
+      "Considera asesoría especializada para optimización de deducciones",
+      "Mantén tu excelente sistema pero busca eficiencias adicionales",
+      "Podrías ayudar a otras autónomas con tu conocimiento"
     ]
   },
   2: {
     title: "La autónoma precavida",
     emoji: "🛡️",
-    description: "Siempre va un paso por delante, busca seguridad y asesoría.",
+    description: "Lo llevas bastante bien, aunque buscas asegurarte con ayuda. Siempre vas un paso por delante.",
+    scoreRange: "7.5-8.9 puntos",
     characteristics: [
-      "Planifica con mucha anticipación",
+      "Planifica con anticipación pero busca confirmación externa",
       "Busca asesoramiento profesional regularmente",
       "Prefiere la seguridad a la improvisación",
-      "Mantiene reservas para imprevistos"
+      "Mantiene reservas para imprevistos fiscales",
+      "Relación estable pero cautelosa con las obligaciones"
     ],
     advice: "Perfecto enfoque. Considera herramientas que te den aún más control y previsión.",
     recommendations: [
-      "Explora herramientas de análisis predictivo",
-      "Mantén tu asesoría pero añade tecnología avanzada",
-      "Considera seguros y coberturas adicionales"
+      "Explora herramientas de análisis predictivo fiscal",
+      "Mantén tu asesoría pero añade tecnología de apoyo",
+      "Considera seguros y coberturas adicionales",
+      "Tu precaución es una fortaleza, úsala para crecer"
     ]
   },
   3: {
     title: "La autónoma apurada",
     emoji: "⏰",
-    description: "Lo hace todo a última hora, con estrés, pero llega.",
+    description: "Todo lo haces a última hora, pero cumples. Tu vida es un sprint cada trimestre.",
+    scoreRange: "6.0-7.4 puntos",
     characteristics: [
       "Trabaja bajo presión en fechas límite",
       "Experimenta estrés durante períodos fiscales",
-      "Logra cumplir pero con mucho esfuerzo",
-      "Necesita recordatorios constantes"
+      "Logra cumplir pero con mucho esfuerzo de última hora",
+      "Necesita recordatorios constantes para no olvidar plazos",
+      "Relación de amor-odio con Hacienda"
     ],
     advice: "Ten tu 'caja de impuestos': separa un % fijo de cada ingreso y olvídate de sustos.",
     recommendations: [
       "Implementa un sistema de separación automática de impuestos",
-      "Usa recordatorios y calendarios fiscales",
-      "Considera herramientas que automaticen tus procesos"
+      "Usa recordatorios y calendarios fiscales automatizados",
+      "Considera herramientas que simplifiquen tus procesos",
+      "Pon el cronómetro a tu favor y evita recargos"
     ]
   },
   4: {
     title: "La autónoma creativa",
     emoji: "🎨",
-    description: "Tiene mil ideas y proyectos, pero la parte fiscal le aburre.",
+    description: "Te centras en lo que te motiva, descuidas lo fiscal. Tienes mil ideas pero la parte fiscal te aburre.",
+    scoreRange: "4.5-5.9 puntos",
     characteristics: [
       "Prioriza la creatividad sobre la administración",
       "Tiene múltiples proyectos en paralelo",
-      "Ve lo fiscal como una distracción",
-      "Busca soluciones simples y rápidas"
+      "Ve lo fiscal como una distracción de su trabajo real",
+      "Busca soluciones simples y rápidas para lo administrativo",
+      "Prefiere delegar o automatizar todo lo posible"
     ],
     advice: "Automatiza lo máximo posible para centrarte en crear sin preocupaciones.",
     recommendations: [
       "Implementa sistemas automatizados de facturación",
-      "Usa herramientas que requieran mínima intervención",
-      "Considera un asistente virtual para tareas administrativas"
+      "Usa herramientas que requieran mínima intervención manual",
+      "Considera un asistente virtual para tareas administrativas",
+      "Enfócate en tu talento, delega el resto"
     ]
   },
   5: {
     title: "La autónoma improvisada",
     emoji: "🎯",
-    description: "Se lanzó sin plan, aprende sobre la marcha, comete errores pero se adapta.",
+    description: "Vas aprendiendo sobre la marcha, con tropiezos. Te lanzaste sin plan pero te adaptas.",
+    scoreRange: "3.0-4.4 puntos",
     characteristics: [
-      "Aprende de la experiencia práctica",
-      "Se adapta rápidamente a los cambios",
-      "Comete errores pero los corrige",
-      "Tiene mentalidad de crecimiento"
+      "Aprende de la experiencia práctica (a veces dolorosa)",
+      "Se adapta rápidamente a los cambios y errores",
+      "Comete errores pero los corrige sobre la marcha",
+      "Tiene mentalidad de crecimiento pero falta estructura",
+      "Relación tensa con las obligaciones fiscales"
     ],
     advice: "Tu capacidad de adaptación es genial. Ahora toca estructurar un poco más.",
     recommendations: [
       "Implementa gradualmente sistemas más estructurados",
       "Mantén tu flexibilidad pero añade organización básica",
-      "Busca formación práctica en gestión fiscal"
+      "Busca formación práctica en gestión fiscal",
+      "Convierte tus errores en aprendizaje sistemático"
     ]
   },
   6: {
     title: "La autónoma pasota",
     emoji: "😅",
-    description: "Vive al día, procrastina, ignora el tema fiscal hasta que explota.",
+    description: "Pura evasión del tema fiscal. Vives al día, procrastinas, ignoras el tema hasta que explota.",
+    scoreRange: "Menos de 3.0 puntos",
     characteristics: [
-      "Evita pensar en temas fiscales",
-      "Procrastina las tareas administrativas",
-      "Se siente abrumada por la burocracia",
-      "Prefiere enfocarse solo en su trabajo creativo"
+      "Evita activamente pensar en temas fiscales",
+      "Procrastina sistemáticamente las tareas administrativas",
+      "Se siente completamente abrumada por la burocracia",
+      "Prefiere enfocarse solo en su trabajo creativo",
+      "Relación de pánico total con Hacienda"
     ],
     advice: "Déjalo en manos de alguien que sí lo mire (nosotros 👋).",
     recommendations: [
-      "Busca asesoría profesional integral",
+      "Busca asesoría profesional integral URGENTE",
       "Delega completamente la gestión fiscal",
-      "Enfócate en lo que mejor sabes hacer"
+      "Enfócate en lo que mejor sabes hacer",
+      "No te agobies, hay solución para todo"
     ]
   }
 };
 
-// Función para calcular la puntuación exacta
+// FUNCIÓN PARA CALCULAR LA PUNTUACIÓN EXACTA CON EL NUEVO SISTEMA
 const calculateScore = (answers: Answer[]): number => {
-  const scoreMap = { A: 2, B: 1, C: 0.5 };
-  return answers.reduce((sum, answer) => sum + scoreMap[answer], 0);
+  const questionScores = [
+    { A: 2.0, B: 1.2, C: 0.4 },  // Pregunta 1
+    { A: 2.0, B: 0.8, C: 0.6 },  // Pregunta 2
+    { A: 2.0, B: 0.6, C: 0.4 },  // Pregunta 3
+    { A: 2.0, B: 1.0, C: 0.2 },  // Pregunta 4
+    { A: 2.0, B: 1.4, C: 0.4 }   // Pregunta 5
+  ];
+  
+  return answers.reduce((sum, answer, index) => sum + questionScores[index][answer], 0);
 };
 
-// Función para determinar el rango de puntuación
-const getScoreRange = (score: number): string => {
-  if (score >= 9.0 && score <= 10.0) return '9.0-10.0 puntos';
-  if (score >= 7.5 && score <= 8.9) return '7.5-8.9 puntos';
-  if (score >= 6.0 && score <= 7.4) return '6.0-7.4 puntos';
-  if (score >= 4.5 && score <= 5.9) return '4.5-5.9 puntos';
-  if (score >= 3.0 && score <= 4.4) return '3.0-4.4 puntos';
-  return '2.5-2.9 puntos';
-};
-
-// Función para obtener el color de la puntuación
+// FUNCIÓN PARA OBTENER EL COLOR DE LA PUNTUACIÓN
 const getScoreColor = (score: number): string => {
-  if (score >= 9) return 'text-green-600';
-  if (score >= 7.5 && score < 9) return 'text-blue-600';
-  if (score >= 6 && score < 7.5) return 'text-indigo-600';
-  if (score >= 4.5 && score < 6) return 'text-purple-600';
-  if (score >= 3 && score < 4.5) return 'text-orange-600';
+  if (score >= 9.0) return 'text-green-600';
+  if (score >= 7.5) return 'text-blue-600';
+  if (score >= 6.0) return 'text-indigo-600';
+  if (score >= 4.5) return 'text-purple-600';
+  if (score >= 3.0) return 'text-orange-600';
   return 'text-red-600';
 };
 
-// Función para obtener el mensaje de evaluación
+// FUNCIÓN PARA OBTENER EL MENSAJE DE EVALUACIÓN
 const getEvaluationMessage = (score: number): string => {
-  if (score >= 9.0 && score <= 10.0) return '¡Excelente nivel de organización fiscal!';
-  if (score >= 7.5 && score <= 8.9) return 'Muy buen nivel de planificación y precaución';
-  if (score >= 6.0 && score <= 7.4) return 'Buen nivel pero con tendencia a la urgencia';
-  if (score >= 4.5 && score <= 5.9) return 'Enfoque creativo que necesita más estructura';
-  if (score >= 3.0 && score <= 4.4) return 'Necesitas apoyo para mejorar tu organización';
+  if (score >= 9.0) return '¡Excelente nivel de organización fiscal!';
+  if (score >= 7.5) return 'Muy buen nivel de planificación y precaución';
+  if (score >= 6.0) return 'Buen nivel pero con tendencia a la urgencia';
+  if (score >= 4.5) return 'Enfoque creativo que necesita más estructura';
+  if (score >= 3.0) return 'Necesitas apoyo para mejorar tu organización';
   return 'Necesitas apoyo profesional urgente';
 };
 
@@ -163,7 +179,6 @@ interface ResultScreenProps {
 export default function ResultScreen({ result, answers, onRestart }: ResultScreenProps) {
   const profile = personalityProfiles[result];
   const score = calculateScore(answers);
-  const scoreRange = getScoreRange(score);
   const scoreColor = getScoreColor(score);
   const evaluationMessage = getEvaluationMessage(score);
 
@@ -208,15 +223,15 @@ export default function ResultScreen({ result, answers, onRestart }: ResultScree
                 <div className="text-center">
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <span className="text-4xl font-bold" style={{ color: '#434C8F' }}>
-                      {score}
+                      {score.toFixed(1)}
                     </span>
-                    <span className="text-2xl text-gray-500">/10</span>
+                    <span className="text-2xl text-gray-500">/10.0</span>
                   </div>
                   <p className="text-sm text-gray-600">Puntuación obtenida</p>
                 </div>
                 <div className="text-center">
                   <p className={`text-lg font-semibold ${scoreColor} mb-1`}>
-                    {scoreRange}
+                    {profile.scoreRange}
                   </p>
                   <p className="text-sm text-gray-600">Rango de clasificación</p>
                 </div>

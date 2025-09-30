@@ -9,18 +9,32 @@ interface Question {
   options: {
     value: Answer;
     text: string;
+    description: string; // Descripción del comportamiento que representa
   }[];
 }
 
+// PREGUNTAS RECALIBRADAS PARA DISTRIBUCIÓN PERFECTA
 const questions: Question[] = [
   {
     id: 1,
     text: "¿Cómo gestionas tus facturas?",
     emoji: "📂",
     options: [
-      { value: 'A', text: 'Tengo un sistema ordenado.' },
-      { value: 'B', text: 'Las guardo como puedo, sin mucho control.' },
-      { value: 'C', text: 'Prefiero no pensarlo demasiado.' }
+      { 
+        value: 'A', 
+        text: 'Tengo un sistema ordenado y digitalizado.',
+        description: 'Máxima organización - 2.0 pts'
+      },
+      { 
+        value: 'B', 
+        text: 'Las guardo como puedo, sin mucho control.',
+        description: 'Organización básica - 1.2 pts'
+      },
+      { 
+        value: 'C', 
+        text: 'Prefiero no pensarlo demasiado.',
+        description: 'Desorganización - 0.4 pts'
+      }
     ]
   },
   {
@@ -28,9 +42,21 @@ const questions: Question[] = [
     text: "Cuando toca presentar impuestos…",
     emoji: "🧾",
     options: [
-      { value: 'A', text: 'Ya lo tengo todo preparado.' },
-      { value: 'B', text: 'Lo dejo para el último momento.' },
-      { value: 'C', text: 'Prefiero que alguien lo haga por mí.' }
+      { 
+        value: 'A', 
+        text: 'Ya lo tengo todo preparado con antelación.',
+        description: 'Máxima preparación - 2.0 pts'
+      },
+      { 
+        value: 'B', 
+        text: 'Lo dejo para el último momento pero lo hago.',
+        description: 'Procrastinación - 0.8 pts'
+      },
+      { 
+        value: 'C', 
+        text: 'Prefiero que alguien lo haga por mí.',
+        description: 'Delegación - 0.6 pts'
+      }
     ]
   },
   {
@@ -38,9 +64,21 @@ const questions: Question[] = [
     text: "Si trabajas con una marca extranjera…",
     emoji: "🌍",
     options: [
-      { value: 'A', text: 'Busco bien qué retenciones aplicar.' },
-      { value: 'B', text: 'Facturo igual y confío en la suerte.' },
-      { value: 'C', text: 'ChatGPT es mi asesoría de confianza.' }
+      { 
+        value: 'A', 
+        text: 'Investigo bien qué retenciones aplicar.',
+        description: 'Conocimiento profundo - 2.0 pts'
+      },
+      { 
+        value: 'B', 
+        text: 'Facturo igual y confío en la suerte.',
+        description: 'Improvisación - 0.6 pts'
+      },
+      { 
+        value: 'C', 
+        text: 'ChatGPT es mi asesoría de confianza.',
+        description: 'Evasión del tema - 0.4 pts'
+      }
     ]
   },
   {
@@ -48,9 +86,21 @@ const questions: Question[] = [
     text: "¿Qué pasa con tus tickets de gastos?",
     emoji: "🧾",
     options: [
-      { value: 'A', text: 'Los archivo para deducirlos.' },
-      { value: 'B', text: 'Los acumulo sin orden.' },
-      { value: 'C', text: 'Desaparecen misteriosamente.' }
+      { 
+        value: 'A', 
+        text: 'Los archivo meticulosamente para deducirlos.',
+        description: 'Máximo control - 2.0 pts'
+      },
+      { 
+        value: 'B', 
+        text: 'Los acumulo sin orden pero los tengo.',
+        description: 'Acumulación - 1.0 pts'
+      },
+      { 
+        value: 'C', 
+        text: 'Desaparecen misteriosamente.',
+        description: 'Pérdida total - 0.2 pts'
+      }
     ]
   },
   {
@@ -58,9 +108,21 @@ const questions: Question[] = [
     text: "Tu relación con Hacienda es…",
     emoji: "🏛️",
     options: [
-      { value: 'A', text: 'Correcta, nos entendemos.' },
-      { value: 'B', text: 'De amor-odio: más odio que amor.' },
-      { value: 'C', text: 'Tensa: nunca sé si voy a salir viva del trimestre.' }
+      { 
+        value: 'A', 
+        text: 'Correcta y transparente, nos entendemos.',
+        description: 'Relación óptima - 2.0 pts'
+      },
+      { 
+        value: 'B', 
+        text: 'De amor-odio: más odio que amor.',
+        description: 'Relación conflictiva - 1.4 pts'
+      },
+      { 
+        value: 'C', 
+        text: 'Tensa: nunca sé si voy a salir viva.',
+        description: 'Relación problemática - 0.4 pts'
+      }
     ]
   }
 ];
@@ -164,9 +226,14 @@ export default function QuizScreen({ answers, onAnswer, onFinish }: QuizScreenPr
                         {option.value}
                       </span>
                     </div>
-                    <span className="text-lg md:text-xl text-gray-700 font-medium">
-                      {option.text}
-                    </span>
+                    <div className="flex-1">
+                      <span className="text-lg md:text-xl text-gray-700 font-medium block">
+                        {option.text}
+                      </span>
+                      <span className="text-sm text-gray-500 mt-1 block">
+                        {option.description}
+                      </span>
+                    </div>
                   </div>
                   <Check className="w-6 h-6 text-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                 </div>
