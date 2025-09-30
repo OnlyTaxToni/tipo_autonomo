@@ -41,35 +41,38 @@ function App() {
     
     let result: 1 | 2 | 3 | 4 | 5 | 6;
     
-    // Rangos exactos - ORDEN CRÍTICO: de mayor a menor puntuación
-    // Rangos exactos SIN SOLAPAMIENTOS:
-    // 9.0-10.0 puntos: Autónoma organizada (resultado 1)
-    // 7.5-8.9 puntos: Autónoma precavida (resultado 2)
-    // 6.0-7.4 puntos: Autónoma apurada (resultado 3)
-    // 4.5-5.9 puntos: Autónoma creativa (resultado 4)
-    // 3.0-4.4 puntos: Autónoma improvisada (resultado 5)
-    // 2.5-2.9 puntos: Autónoma pasota (resultado 6)
+    // RANGOS EXACTOS CORREGIDOS - ORDEN CRÍTICO: de mayor a menor puntuación
+    // 9.0-10.0 puntos: Autónoma organizada (resultado 1) ✅
+    // 7.5-8.9 puntos: Autónoma precavida (resultado 2) ✅
+    // 6.0-7.4 puntos: Autónoma apurada (resultado 3) ✅
+    // 4.5-5.9 puntos: Autónoma creativa (resultado 4) ✅
+    // 3.0-4.4 puntos: Autónoma improvisada (resultado 5) ✅
+    // 2.5-2.9 puntos: Autónoma pasota (resultado 6) ✅
     
-    if (totalScore >= 9) {
+    if (totalScore >= 9.0 && totalScore <= 10.0) {
       result = 1; // 🗂️ Autónoma organizada
     } 
-    else if (totalScore >= 7.5 && totalScore < 9) {
+    else if (totalScore >= 7.5 && totalScore <= 8.9) {
       result = 2; // 🛡️ Autónoma precavida
     } 
-    else if (totalScore >= 6 && totalScore < 7.5) {
+    else if (totalScore >= 6.0 && totalScore <= 7.4) {
       result = 3; // ⏰ Autónoma apurada
     } 
-    else if (totalScore >= 4.5 && totalScore < 6) {
+    else if (totalScore >= 4.5 && totalScore <= 5.9) {
       result = 4; // 🎨 Autónoma creativa (4.5-5.5 puntos)
     } 
-    else if (totalScore >= 3 && totalScore < 4.5) {
+    else if (totalScore >= 3.0 && totalScore <= 4.4) {
       result = 5; // 🎯 Autónoma improvisada
     } 
     else {
       result = 6; // 😅 Autónoma pasota
     }
 
-    console.log(`✅ PUNTUACIÓN: ${totalScore} → RESULTADO: ${result} (${result === 1 ? 'Organizada' : result === 2 ? 'Precavida' : result === 3 ? 'Apurada' : result === 4 ? 'Creativa' : result === 5 ? 'Improvisada' : 'Pasota'})`);
+    console.log(`🔍 DEBUG PUNTUACIÓN:`);
+    console.log(`   Respuestas: ${quizState.answers.join(', ')}`);
+    console.log(`   Puntuación total: ${totalScore}/10`);
+    console.log(`   Resultado asignado: ${result}`);
+    console.log(`   Perfil: ${result === 1 ? '🗂️ Autónoma organizada' : result === 2 ? '🛡️ Autónoma precavida' : result === 3 ? '⏰ Autónoma apurada' : result === 4 ? '🎨 Autónoma creativa' : result === 5 ? '🎯 Autónoma improvisada' : '😅 Autónoma pasota'}`);
 
     setQuizState(prev => ({
       ...prev,

@@ -126,11 +126,11 @@ const calculateScore = (answers: Answer[]): number => {
 
 // Función para determinar el rango de puntuación
 const getScoreRange = (score: number): string => {
-  if (score >= 9) return '9.0-10.0 puntos';
-  if (score >= 7.5 && score < 9) return '7.5-8.9 puntos';
-  if (score >= 6 && score < 7.5) return '6.0-7.4 puntos';
-  if (score >= 4.5 && score < 6) return '4.5-5.9 puntos';
-  if (score >= 3 && score < 4.5) return '3.0-4.4 puntos';
+  if (score >= 9.0 && score <= 10.0) return '9.0-10.0 puntos';
+  if (score >= 7.5 && score <= 8.9) return '7.5-8.9 puntos';
+  if (score >= 6.0 && score <= 7.4) return '6.0-7.4 puntos';
+  if (score >= 4.5 && score <= 5.9) return '4.5-5.9 puntos';
+  if (score >= 3.0 && score <= 4.4) return '3.0-4.4 puntos';
   return '2.5-2.9 puntos';
 };
 
@@ -146,11 +146,11 @@ const getScoreColor = (score: number): string => {
 
 // Función para obtener el mensaje de evaluación
 const getEvaluationMessage = (score: number): string => {
-  if (score >= 9) return '¡Excelente nivel de organización fiscal!';
-  if (score >= 7.5 && score < 9) return 'Muy buen nivel de planificación y precaución';
-  if (score >= 6 && score < 7.5) return 'Buen nivel pero con tendencia a la urgencia';
-  if (score >= 4.5 && score < 6) return 'Enfoque creativo que necesita más estructura';
-  if (score >= 3 && score < 4.5) return 'Necesitas apoyo para mejorar tu organización';
+  if (score >= 9.0 && score <= 10.0) return '¡Excelente nivel de organización fiscal!';
+  if (score >= 7.5 && score <= 8.9) return 'Muy buen nivel de planificación y precaución';
+  if (score >= 6.0 && score <= 7.4) return 'Buen nivel pero con tendencia a la urgencia';
+  if (score >= 4.5 && score <= 5.9) return 'Enfoque creativo que necesita más estructura';
+  if (score >= 3.0 && score <= 4.4) return 'Necesitas apoyo para mejorar tu organización';
   return 'Necesitas apoyo profesional urgente';
 };
 
