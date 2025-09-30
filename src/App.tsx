@@ -35,22 +35,23 @@ function App() {
   };
 
   const finishQuiz = () => {
-    // Calcular puntuación directa (sin normalizar)
+    // Calcular puntuación directa
     const scoreMap = { A: 2, B: 1, C: 0.5 };
     const totalScore = quizState.answers.reduce((sum, answer) => sum + scoreMap[answer], 0);
     
     let result: 1 | 2 | 3 | 4 | 5 | 6;
     
-    // Asignar resultado basado en puntuación directa (2.5 a 10 puntos)
-    if (totalScore >= 9) {
+    // Asignar resultado basado en puntuación directa
+    // Rangos: 2.5 (mínimo) a 10 (máximo)
+    if (totalScore >= 9.0) {
       result = 1; // Autónoma organizada (9-10 puntos)
     } else if (totalScore >= 7.5) {
       result = 5; // Autónoma precavida (7.5-8.5 puntos)
-    } else if (totalScore >= 6) {
+    } else if (totalScore >= 6.0) {
       result = 2; // Autónoma apurada (6-7 puntos)
     } else if (totalScore >= 4.5) {
       result = 4; // Autónoma creativa (4.5-5.5 puntos)
-    } else if (totalScore >= 3) {
+    } else if (totalScore >= 3.0) {
       result = 6; // Autónoma improvisada (3.5-4 puntos)
     } else {
       result = 3; // Autónoma pasota (2.5-3 puntos)
