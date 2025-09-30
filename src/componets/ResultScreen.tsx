@@ -58,22 +58,22 @@ const calculateScore = (answers: Answer[]): number => {
 
 // Función para obtener el color de la puntuación
 const getScoreColor = (score: number): string => {
-  if (score >= 9) return 'text-green-600';        // Organizada
-  if (score >= 7.5) return 'text-blue-600';       // Precavida
-  if (score >= 6) return 'text-indigo-600';       // Apurada
-  if (score >= 4.5) return 'text-purple-600';     // Creativa
-  if (score >= 3) return 'text-orange-600';       // Improvisada
-  return 'text-red-600';
+  if (score >= 9.0) return 'text-green-600';      // 🗂️ Organizada (9.0-10.0)
+  if (score >= 7.5) return 'text-blue-600';       // 🛡️ Precavida (7.5-8.5)
+  if (score >= 6.0) return 'text-indigo-600';     // ⏰ Apurada (6.0-7.0)
+  if (score >= 4.5) return 'text-purple-600';     // 🎨 Creativa (4.5-5.5)
+  if (score >= 3.0) return 'text-orange-600';     // 🎯 Improvisada (3.0-4.0)
+  return 'text-red-600';                          // 😅 Pasota (2.5-2.9)
 };
 
 // Función para obtener el mensaje de la puntuación
 const getScoreMessage = (score: number): string => {
-  if (score >= 9) return '¡Excelente organización fiscal!';
+  if (score >= 9.0) return '¡Excelente organización fiscal!';
   if (score >= 7.5) return 'Muy buen nivel de organización';
-  if (score >= 6) return 'Buen nivel de organización';
+  if (score >= 6.0) return 'Buen nivel de organización';
   if (score >= 4.5) return 'Nivel de organización aceptable';
-  if (score >= 3) return 'Necesitas mejorar la organización';
-  return 'Necesitas ayuda urgente';
+  if (score >= 3.0) return 'Necesitas mejorar la organización';
+  return 'Necesitas ayuda urgente con la organización';
 };
 
 interface ResultScreenProps {
