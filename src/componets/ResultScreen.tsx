@@ -195,7 +195,7 @@ export default function ResultScreen({ result, answers, onRestart }: ResultScree
               {profile.emoji}
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#434C8F' }}>
-              La autónoma creativa
+              {profile.title}
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-6 leading-relaxed">
               {profile.description}
