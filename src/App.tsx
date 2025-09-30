@@ -42,22 +42,33 @@ function App() {
     let result: 1 | 2 | 3 | 4 | 5 | 6;
     
     // Rangos exactos - ORDEN CRÍTICO: de mayor a menor puntuación
-    // Rangos exactos según especificación:
-    if (totalScore >= 9 && totalScore <= 10) {
+    // ORDEN CRÍTICO: Evaluar de mayor a menor puntuación
+    // 9-10 puntos: Autónoma organizada (resultado 1)
+    if (totalScore >= 9) {
       result = 1; // 🗂️ Autónoma organizada (9-10 puntos)
-    } else if (totalScore >= 7.5 && totalScore < 9) {
+    } 
+    // 7.5-8.9 puntos: Autónoma precavida (resultado 5)
+    else if (totalScore >= 7.5) {
       result = 5; // 🛡️ Autónoma precavida (7.5-8.5 puntos)
-    } else if (totalScore >= 6 && totalScore < 7.5) {
+    } 
+    // 6-7.4 puntos: Autónoma apurada (resultado 2)
+    else if (totalScore >= 6) {
       result = 2; // ⏰ Autónoma apurada (6-7 puntos)
-    } else if (totalScore >= 4.5 && totalScore < 6) {
+    } 
+    // 4.5-5.9 puntos: Autónoma creativa (resultado 4)
+    else if (totalScore >= 4.5) {
       result = 4; // 🎨 Autónoma creativa (4.5-5.5 puntos)
-    } else if (totalScore >= 3 && totalScore < 4.5) {
+    } 
+    // 3-4.4 puntos: Autónoma improvisada (resultado 6)
+    else if (totalScore >= 3) {
       result = 6; // 🎯 Autónoma improvisada (3-4 puntos)
-    } else {
+    } 
+    // 2.5 puntos: Autónoma pasota (resultado 3)
+    else {
       result = 3; // 😅 Autónoma pasota (2.5 puntos)
     }
 
-    console.log(`Puntuación total: ${totalScore} → Resultado: ${result}`);
+    console.log(`DEBUG: Puntuación total: ${totalScore} → Resultado: ${result} (${result === 1 ? 'Organizada' : result === 5 ? 'Precavida' : result === 2 ? 'Apurada' : result === 4 ? 'Creativa' : result === 6 ? 'Improvisada' : 'Pasota'})`);
 
     setQuizState(prev => ({
       ...prev,
