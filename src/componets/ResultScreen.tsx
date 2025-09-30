@@ -9,24 +9,42 @@ interface Result {
   advice: string;
 }
 
-const results: Record<1 | 2 | 3, Result> = {
+const results: Record<1 | 2 | 3 | 4 | 5 | 6, Result> = {
   1: {
     title: "La autónoma organizada",
     emoji: "🗂️",
-    description: "Eres la reina del control fiscal y tus carpetas están más ordenadas que la biblioteca nacional.",
-    advice: "Revisa deducciones, hasta lo más ordenado puede ahorrar más."
+    description: "Meticulosa, planifica todo, tiene su Excel y las facturas al día.",
+    advice: "Revisa deducciones avanzadas, hasta lo más ordenado puede optimizar más."
   },
   2: {
     title: "La autónoma apurada",
     emoji: "⏰",
-    description: "Tu vida es un sprint cada trimestre.",
+    description: "Lo hace todo a última hora, con estrés, pero llega.",
     advice: "Ten tu 'caja de impuestos': separa un % fijo de cada ingreso y olvídate de sustos"
   },
   3: {
     title: "La autónoma pasota",
     emoji: "😅",
-    description: "Para ti, lo fiscal es un \"ya lo miraré\".",
+    description: "Vive al día, procrastina, ignora el tema fiscal hasta que explota.",
     advice: "Déjalo en manos de alguien que sí lo mire (nosotros 👋)."
+  },
+  4: {
+    title: "La autónoma creativa",
+    emoji: "🎨",
+    description: "Tiene mil ideas y proyectos, pero la parte fiscal le aburre.",
+    advice: "Automatiza lo máximo posible para centrarte en crear sin preocupaciones."
+  },
+  5: {
+    title: "La autónoma precavida",
+    emoji: "🛡️",
+    description: "Siempre va un paso por delante, busca seguridad y asesoría.",
+    advice: "Perfecto enfoque. Considera herramientas que te den aún más control y previsión."
+  },
+  6: {
+    title: "La autónoma improvisada",
+    emoji: "🎯",
+    description: "Se lanzó sin plan, aprende sobre la marcha, comete errores pero se adapta.",
+    advice: "Tu capacidad de adaptación es genial. Ahora toca estructurar un poco más."
   }
 };
 
@@ -40,20 +58,24 @@ const calculateScore = (answers: Answer[]): number => {
 
 // Función para obtener el color de la puntuación
 const getScoreColor = (score: number): string => {
-  if (score >= 7) return 'text-green-600';
-  if (score >= 5) return 'text-yellow-600';
+  if (score >= 8.5) return 'text-green-600';
+  if (score >= 7) return 'text-blue-600';
+  if (score >= 5.5) return 'text-yellow-600';
+  if (score >= 4) return 'text-orange-600';
   return 'text-red-600';
 };
 
 // Función para obtener el mensaje de la puntuación
 const getScoreMessage = (score: number): string => {
-  if (score >= 7) return '¡Excelente organización fiscal!';
-  if (score >= 5) return 'Buen nivel de organización';
+  if (score >= 8.5) return '¡Excelente organización fiscal!';
+  if (score >= 7) return 'Muy buen nivel de organización';
+  if (score >= 5.5) return 'Nivel de organización aceptable';
+  if (score >= 4) return 'Necesitas mejorar la organización';
   return 'Necesitas ayuda urgente';
 };
 
 interface ResultScreenProps {
-  result: 1 | 2 | 3;
+  result: 1 | 2 | 3 | 4 | 5 | 6;
   answers: Answer[];
   onRestart: () => void;
 }

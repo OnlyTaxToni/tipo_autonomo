@@ -8,7 +8,7 @@ export type Answer = 'A' | 'B' | 'C';
 export interface QuizState {
   answers: Answer[];
   currentScreen: 'welcome' | 'quiz' | 'result';
-  result: 1 | 2 | 3 | null;
+  result: 1 | 2 | 3 | 4 | 5 | 6 | null;
 }
 
 function App() {
@@ -39,15 +39,21 @@ function App() {
     const scoreMap = { A: 2, B: 1, C: 0.5 };
     const totalScore = quizState.answers.reduce((sum, answer) => sum + scoreMap[answer], 0);
     
-    let result: 1 | 2 | 3;
+    let result: 1 | 2 | 3 | 4 | 5 | 6;
     
-    // Asignar resultado basado en puntuación directa
-    if (totalScore < 5) {
-      result = 3; // Autónoma pasota
-    } else if (totalScore < 7) {
-      result = 2; // Autónoma apurada
+    // Asignar resultado basado en puntuación directa (2.5 a 10 puntos)
+    if (totalScore >= 9) {
+      result = 1; // Autónoma organizada (9-10 puntos)
+    } else if (totalScore >= 7.5) {
+      result = 5; // Autónoma precavida (7.5-8.5 puntos)
+    } else if (totalScore >= 6) {
+      result = 2; // Autónoma apurada (6-7 puntos)
+    } else if (totalScore >= 4.5) {
+      result = 4; // Autónoma creativa (4.5-5.5 puntos)
+    } else if (totalScore >= 3.5) {
+      result = 6; // Autónoma improvisada (3.5-4 puntos)
     } else {
-      result = 1; // Autónoma organizada
+      result = 3; // Autónoma pasota (2.5-3 puntos)
     }
 
     setQuizState(prev => ({
