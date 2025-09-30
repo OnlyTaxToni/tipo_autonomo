@@ -35,19 +35,19 @@ function App() {
   };
 
   const finishQuiz = () => {
-    // SISTEMA DE PUNTUACIÓN COMPLETAMENTE NUEVO
-    // Cada respuesta tiene un valor específico diseñado para distribuir correctamente
+    // SISTEMA DE PUNTUACIÓN RECALIBRADO - SOLO MÚLTIPLOS DE 0.5
+    // Diseñado para distribución perfecta en los 6 rangos obligatorios
     const questionScores = [
-      // Pregunta 1: Gestión de facturas
-      { A: 2.0, B: 1.2, C: 0.4 },  // Organización vs desorganización
-      // Pregunta 2: Presentación de impuestos  
-      { A: 2.0, B: 0.8, C: 0.6 },  // Preparación vs procrastinación vs delegación
-      // Pregunta 3: Trabajo con marcas extranjeras
-      { A: 2.0, B: 0.6, C: 0.4 },  // Conocimiento vs improvisación vs ignorancia
-      // Pregunta 4: Tickets de gastos
-      { A: 2.0, B: 1.0, C: 0.2 },  // Orden vs acumulación vs pérdida
-      // Pregunta 5: Relación con Hacienda
-      { A: 2.0, B: 1.4, C: 0.4 }   // Correcta vs conflictiva vs tensa
+      // Pregunta 1: Gestión de facturas - Organización fundamental
+      { A: 2.0, B: 1.0, C: 0.5 },  // Máxima organización vs básica vs mínima
+      // Pregunta 2: Presentación de impuestos - Planificación
+      { A: 2.0, B: 1.5, C: 0.5 },  // Preparación vs último momento vs delegación
+      // Pregunta 3: Trabajo con marcas extranjeras - Conocimiento especializado
+      { A: 2.0, B: 1.0, C: 0.5 },  // Investigación vs improvisación vs evasión
+      // Pregunta 4: Tickets de gastos - Control de deducciones
+      { A: 2.0, B: 1.5, C: 0.5 },  // Archivo meticuloso vs acumulación vs pérdida
+      // Pregunta 5: Relación con Hacienda - Cumplimiento fiscal
+      { A: 2.0, B: 1.0, C: 0.5 }   // Correcta vs conflictiva vs problemática
     ];
 
     let totalScore = 0;
@@ -55,34 +55,34 @@ function App() {
       totalScore += questionScores[index][answer];
     });
 
-    // RANGOS EXACTOS OBLIGATORIOS - SIN SOLAPAMIENTOS
+    // RANGOS EXACTOS CON INCREMENTOS DE 0.5 - SIN SOLAPAMIENTOS
     let result: 1 | 2 | 3 | 4 | 5 | 6;
     
     if (totalScore >= 9.0) {
       result = 1; // 🗂️ Autónoma organizada (9.0-10.0)
-    } else if (totalScore >= 7.5) {
-      result = 2; // 🛡️ Autónoma precavida (7.5-8.9)
-    } else if (totalScore >= 6.0) {
-      result = 3; // ⏰ Autónoma apurada (6.0-7.4)
-    } else if (totalScore >= 4.5) {
-      result = 4; // 🎨 Autónoma creativa (4.5-5.9)
-    } else if (totalScore >= 3.0) {
-      result = 5; // 🎯 Autónoma improvisada (3.0-4.4)
+    } else if (totalScore >= 8.0) {
+      result = 2; // 🛡️ Autónoma precavida (8.0-8.5)
+    } else if (totalScore >= 6.5) {
+      result = 3; // ⏰ Autónoma apurada (6.5-7.5)
+    } else if (totalScore >= 5.0) {
+      result = 4; // 🎨 Autónoma creativa (5.0-6.0)
+    } else if (totalScore >= 3.5) {
+      result = 5; // 🎯 Autónoma improvisada (3.5-4.5)
     } else {
-      result = 6; // 😅 Autónoma pasota (<3.0)
+      result = 6; // 😅 Autónoma pasota (2.5-3.0)
     }
 
-    console.log(`🔍 SISTEMA DE PUNTUACIÓN RECALIBRADO:`);
+    console.log(`🔍 SISTEMA DE PUNTUACIÓN CORREGIDO (INCREMENTOS 0.5):`);
     console.log(`   Respuestas: ${quizState.answers.join(', ')}`);
     console.log(`   Puntuación total: ${totalScore.toFixed(1)}/10.0`);
     console.log(`   Resultado asignado: ${result}`);
     console.log(`   Perfil: ${
       result === 1 ? '🗂️ Autónoma organizada (9.0-10.0)' :
-      result === 2 ? '🛡️ Autónoma precavida (7.5-8.9)' :
-      result === 3 ? '⏰ Autónoma apurada (6.0-7.4)' :
-      result === 4 ? '🎨 Autónoma creativa (4.5-5.9)' :
-      result === 5 ? '🎯 Autónoma improvisada (3.0-4.4)' :
-      '😅 Autónoma pasota (<3.0)'
+      result === 2 ? '🛡️ Autónoma precavida (8.0-8.5)' :
+      result === 3 ? '⏰ Autónoma apurada (6.5-7.5)' :
+      result === 4 ? '🎨 Autónoma creativa (5.0-6.0)' :
+      result === 5 ? '🎯 Autónoma improvisada (3.5-4.5)' :
+      '😅 Autónoma pasota (2.5-3.0)'
     }`);
 
     setQuizState(prev => ({

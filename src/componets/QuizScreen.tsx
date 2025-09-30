@@ -28,12 +28,12 @@ const questions: Question[] = [
       { 
         value: 'B', 
         text: 'Las guardo como puedo, sin mucho control.',
-        description: 'Organización básica - 1.2 pts'
+        description: 'Organización básica - 1.0 pts'
       },
       { 
         value: 'C', 
         text: 'Prefiero no pensarlo demasiado.',
-        description: 'Desorganización - 0.4 pts'
+        description: 'Desorganización - 0.5 pts'
       }
     ]
   },
@@ -50,12 +50,12 @@ const questions: Question[] = [
       { 
         value: 'B', 
         text: 'Lo dejo para el último momento pero lo hago.',
-        description: 'Procrastinación - 0.8 pts'
+        description: 'Procrastinación - 1.5 pts'
       },
       { 
         value: 'C', 
         text: 'Prefiero que alguien lo haga por mí.',
-        description: 'Delegación - 0.6 pts'
+        description: 'Delegación - 0.5 pts'
       }
     ]
   },
@@ -72,12 +72,12 @@ const questions: Question[] = [
       { 
         value: 'B', 
         text: 'Facturo igual y confío en la suerte.',
-        description: 'Improvisación - 0.6 pts'
+        description: 'Improvisación - 1.0 pts'
       },
       { 
         value: 'C', 
         text: 'ChatGPT es mi asesoría de confianza.',
-        description: 'Evasión del tema - 0.4 pts'
+        description: 'Evasión del tema - 0.5 pts'
       }
     ]
   },
@@ -94,12 +94,12 @@ const questions: Question[] = [
       { 
         value: 'B', 
         text: 'Los acumulo sin orden pero los tengo.',
-        description: 'Acumulación - 1.0 pts'
+        description: 'Acumulación - 1.5 pts'
       },
       { 
         value: 'C', 
         text: 'Desaparecen misteriosamente.',
-        description: 'Pérdida total - 0.2 pts'
+        description: 'Pérdida total - 0.5 pts'
       }
     ]
   },
@@ -116,12 +116,12 @@ const questions: Question[] = [
       { 
         value: 'B', 
         text: 'De amor-odio: más odio que amor.',
-        description: 'Relación conflictiva - 1.4 pts'
+        description: 'Relación conflictiva - 1.0 pts'
       },
       { 
         value: 'C', 
         text: 'Tensa: nunca sé si voy a salir viva.',
-        description: 'Relación problemática - 0.4 pts'
+        description: 'Relación problemática - 0.5 pts'
       }
     ]
   }
