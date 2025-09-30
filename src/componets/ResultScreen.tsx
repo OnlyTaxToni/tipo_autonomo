@@ -154,9 +154,9 @@ export default function ResultScreen({ answers, onRestart }: ResultScreenProps) 
   console.log(`   Perfil: ${profile.title}`);
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-4">
+    <div className="min-h-screen p-4 pt-24 md:pt-28">
       {/* Header con logo */}
-      <div className="absolute top-0 left-0 right-0 p-6">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-br from-purple-100 to-indigo-100 p-4 md:p-6 shadow-sm">
         <div className="flex justify-center">
           <a 
             href="https://onlytax.es" 
@@ -167,83 +167,83 @@ export default function ResultScreen({ answers, onRestart }: ResultScreenProps) 
             <img 
               src="/onlytax oscuro.png" 
               alt="OnlyTax" 
-              className="h-8 md:h-10" 
+              className="h-6 md:h-8" 
             />
           </a>
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto w-full">
-        <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 mb-8 transform hover:scale-[1.02] transition-transform duration-300">
+      <div className="max-w-4xl mx-auto w-full flex items-center justify-center min-h-[calc(100vh-6rem)]">
+        <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-8 lg:p-12 w-full transform hover:scale-[1.01] transition-transform duration-300">
           <div className="text-center mb-8">
-            <div className="text-8xl mb-6 animate-bounce">{profile.emoji}</div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#434C8F' }}>
+            <div className="text-6xl md:text-8xl mb-4 md:mb-6 animate-bounce">{profile.emoji}</div>
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4" style={{ color: '#434C8F' }}>
               {profile.title}
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-6 leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mb-4 md:mb-6 leading-relaxed px-2">
               {profile.description}
             </p>
 
-            <div className="mb-8 p-6 rounded-2xl bg-gray-50 border-2 border-gray-200">
-              <h3 className="text-lg font-bold text-gray-800 mb-4">📊 Tu evaluación completa</h3>
-              <div className="grid md:grid-cols-2 gap-6">
+            <div className="mb-6 md:mb-8 p-4 md:p-6 rounded-2xl bg-gray-50 border-2 border-gray-200">
+              <h3 className="text-base md:text-lg font-bold text-gray-800 mb-3 md:mb-4">📊 Tu evaluación completa</h3>
+              <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                 <div className="text-center">
                   <div className="flex items-center justify-center gap-2 mb-2">
-                    <span className="text-4xl font-bold" style={{ color: '#434C8F' }}>
+                    <span className="text-2xl md:text-4xl font-bold" style={{ color: '#434C8F' }}>
                       {score.toFixed(1)}
                     </span>
-                    <span className="text-2xl text-gray-500">/10.0</span>
+                    <span className="text-lg md:text-2xl text-gray-500">/10.0</span>
                   </div>
                   <p className="text-sm text-gray-600">Puntuación obtenida</p>
                 </div>
                 <div className="text-center">
-                  <p className={`text-lg font-semibold ${scoreCls} mb-1`}>
+                  <p className={`text-base md:text-lg font-semibold ${scoreCls} mb-1`}>
                     {scoreRange}
                   </p>
                   <p className="text-sm text-gray-600">Rango de clasificación</p>
                 </div>
               </div>
-              <p className={`text-center mt-4 text-lg font-medium ${scoreCls}`}>
+              <p className={`text-center mt-3 md:mt-4 text-base md:text-lg font-medium ${scoreCls} px-2`}>
                 {evaluation}
               </p>
             </div>
 
-            <div className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: '#D9DAFA' }}>
-              <h3 className="text-lg font-bold text-gray-800 mb-4">🎯 Características de tu perfil:</h3>
+            <div className="mb-6 md:mb-8 p-4 md:p-6 rounded-2xl" style={{ backgroundColor: '#D9DAFA' }}>
+              <h3 className="text-base md:text-lg font-bold text-gray-800 mb-3 md:mb-4">🎯 Características de tu perfil:</h3>
               <ul className="text-left space-y-2">
                 {profile.characteristics.map((c, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="text-purple-600 mt-1">•</span>
-                    <span className="text-gray-700">{c}</span>
+                    <span className="text-sm md:text-base text-gray-700">{c}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="mb-8 p-6 rounded-2xl bg-yellow-50 border-2 border-yellow-200">
-              <h3 className="text-lg font-bold text-gray-800 mb-2">💡 Tu consejo personalizado:</h3>
-              <p className="text-lg text-gray-700 mb-4">{profile.advice}</p>
+            <div className="mb-6 md:mb-8 p-4 md:p-6 rounded-2xl bg-yellow-50 border-2 border-yellow-200">
+              <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2">💡 Tu consejo personalizado:</h3>
+              <p className="text-sm md:text-lg text-gray-700">{profile.advice}</p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-green-50 border-2 border-green-200">
-              <h3 className="text-lg font-bold text-gray-800 mb-4">🚀 Recomendaciones para ti:</h3>
+            <div className="p-4 md:p-6 rounded-2xl bg-green-50 border-2 border-green-200">
+              <h3 className="text-base md:text-lg font-bold text-gray-800 mb-3 md:mb-4">🚀 Recomendaciones para ti:</h3>
               <ul className="text-left space-y-2">
                 {profile.recommendations.map((r, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="text-green-600 mt-1">✓</span>
-                    <span className="text-gray-700">{r}</span>
+                    <span className="text-sm md:text-base text-gray-700">{r}</span>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
 
-          <div className="text-center mt-8">
+          <div className="text-center mt-6 md:mt-8">
             <button
               onClick={onRestart}
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white font-bold text-xl px-8 py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 active:scale-95"
+              className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white font-bold text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 active:scale-95"
             >
-              <RefreshCw className="w-6 h-6" />
+              <RefreshCw className="w-5 h-5 md:w-6 md:h-6" />
               Hacer el quiz otra vez
             </button>
           </div>

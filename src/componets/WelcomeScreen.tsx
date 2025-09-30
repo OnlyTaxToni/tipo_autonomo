@@ -7,9 +7,9 @@ interface WelcomeScreenProps {
 
 export default function WelcomeScreen({ onStart }: WelcomeScreenProps) {
   return (
-    <div className="flex items-center justify-center min-h-screen p-4">
+    <div className="min-h-screen p-4 pt-24 md:pt-28">
       {/* Header con logo */}
-      <div className="absolute top-0 left-0 right-0 p-6">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-br from-purple-100 to-indigo-100 p-4 md:p-6 shadow-sm">
         <div className="flex justify-center">
           <a 
             href="https://onlytax.es" 
@@ -20,13 +20,13 @@ export default function WelcomeScreen({ onStart }: WelcomeScreenProps) {
             <img 
               src="/onlytax oscuro.png" 
               alt="OnlyTax" 
-              className="h-8 md:h-10"
+              className="h-6 md:h-8"
             />
           </a>
         </div>
       </div>
       
-      <div className="max-w-2xl mx-auto text-center">
+      <div className="max-w-2xl mx-auto text-center flex items-center justify-center min-h-[calc(100vh-6rem)]">
         <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 transform hover:scale-105 transition-transform duration-300">
           <div className="mb-8">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 leading-tight">

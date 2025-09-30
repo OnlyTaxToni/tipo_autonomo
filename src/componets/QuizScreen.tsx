@@ -156,9 +156,9 @@ export default function QuizScreen({ answers, onAnswer, onFinish }: QuizScreenPr
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-4">
+    <div className="min-h-screen p-4 pt-24 md:pt-28">
       {/* Header con logo */}
-      <div className="absolute top-0 left-0 right-0 p-6">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-br from-purple-100 to-indigo-100 p-4 md:p-6 shadow-sm">
         <div className="flex justify-center">
           <a 
             href="https://onlytax.es" 
@@ -169,13 +169,13 @@ export default function QuizScreen({ answers, onAnswer, onFinish }: QuizScreenPr
             <img 
               src="/onlytax oscuro.png" 
               alt="OnlyTax" 
-              className="h-8 md:h-10"
+              className="h-6 md:h-8"
             />
           </a>
         </div>
       </div>
       
-      <div className="max-w-3xl mx-auto w-full">
+      <div className="max-w-3xl mx-auto w-full flex flex-col justify-center min-h-[calc(100vh-6rem)]">
         {/* Barra de progreso */}
         <div className="mb-8">
           <div className="flex justify-between items-center mb-2">
@@ -195,12 +195,12 @@ export default function QuizScreen({ answers, onAnswer, onFinish }: QuizScreenPr
         </div>
 
         {/* Pregunta */}
-        <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-10 transform hover:scale-[1.02] transition-transform duration-300">
+        <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-8 lg:p-10 transform hover:scale-[1.02] transition-transform duration-300">
           <div className="text-center mb-8">
-            <div className="text-6xl mb-4 animate-bounce">
+            <div className="text-5xl md:text-6xl mb-4 animate-bounce">
               {currentQuestion.emoji}
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-2 px-2">
               {currentQuestion.text}
             </h2>
           </div>
@@ -211,31 +211,31 @@ export default function QuizScreen({ answers, onAnswer, onFinish }: QuizScreenPr
               <button
                 key={option.value}
                 onClick={() => handleAnswer(option.value)}
-                className="w-full p-6 text-left border-3 border-gray-200 rounded-2xl hover:border-purple-400 hover:bg-purple-50 transition-all duration-200 group transform hover:scale-[1.02] active:scale-[0.98]"
+                className="w-full p-4 md:p-6 text-left border-3 border-gray-200 rounded-2xl hover:border-purple-400 hover:bg-purple-50 transition-all duration-200 group transform hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   animationDelay: `${index * 100}ms`
                 }}
               >
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-3 md:space-x-4 flex-1">
                     <div 
-                      className="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center group-hover:border-purple-500 group-hover:bg-purple-500 transition-all duration-200"
+                      className="w-7 h-7 md:w-8 md:h-8 rounded-full border-2 border-gray-300 flex items-center justify-center group-hover:border-purple-500 group-hover:bg-purple-500 transition-all duration-200 flex-shrink-0"
                       style={{ backgroundColor: '#BEBFF7' }}
                     >
-                      <span className="font-bold text-white">
+                      <span className="font-bold text-white text-sm md:text-base">
                         {option.value}
                       </span>
                     </div>
                     <div className="flex-1">
-                      <span className="text-lg md:text-xl text-gray-700 font-medium block">
+                      <span className="text-base md:text-lg lg:text-xl text-gray-700 font-medium block">
                         {option.text}
                       </span>
-                      <span className="text-sm text-gray-500 mt-1 block">
+                      <span className="text-xs md:text-sm text-gray-500 mt-1 block">
                         {option.description}
                       </span>
                     </div>
                   </div>
-                  <Check className="w-6 h-6 text-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  <Check className="w-5 h-5 md:w-6 md:h-6 text-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex-shrink-0" />
                 </div>
               </button>
             ))}
