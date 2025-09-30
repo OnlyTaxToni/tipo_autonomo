@@ -9,7 +9,6 @@ interface Question {
   options: {
     value: Answer;
     text: string;
-    description: string; // Descripción del comportamiento que representa
   }[];
 }
 
@@ -22,18 +21,15 @@ const questions: Question[] = [
     options: [
       { 
         value: 'A', 
-        text: 'Tengo un sistema ordenado y digitalizado.',
-        description: 'Máxima organización - 2.0 pts'
+        text: 'Tengo un sistema ordenado y digitalizado.'
       },
       { 
         value: 'B', 
-        text: 'Las guardo como puedo, sin mucho control.',
-        description: 'Organización básica - 1.0 pts'
+        text: 'Las guardo como puedo, sin mucho control.'
       },
       { 
         value: 'C', 
-        text: 'Prefiero no pensarlo demasiado.',
-        description: 'Desorganización - 0.5 pts'
+        text: 'Prefiero no pensarlo demasiado.'
       }
     ]
   },
@@ -44,18 +40,15 @@ const questions: Question[] = [
     options: [
       { 
         value: 'A', 
-        text: 'Ya lo tengo todo preparado con antelación.',
-        description: 'Máxima preparación - 2.0 pts'
+        text: 'Ya lo tengo todo preparado con antelación.'
       },
       { 
         value: 'B', 
-        text: 'Lo dejo para el último momento pero lo hago.',
-        description: 'Procrastinación - 1.5 pts'
+        text: 'Lo dejo para el último momento pero lo hago.'
       },
       { 
         value: 'C', 
-        text: 'Prefiero que alguien lo haga por mí.',
-        description: 'Delegación - 0.5 pts'
+        text: 'Prefiero que alguien lo haga por mí.'
       }
     ]
   },
@@ -66,18 +59,15 @@ const questions: Question[] = [
     options: [
       { 
         value: 'A', 
-        text: 'Investigo bien qué retenciones aplicar.',
-        description: 'Conocimiento profundo - 2.0 pts'
+        text: 'Investigo bien qué retenciones aplicar.'
       },
       { 
         value: 'B', 
-        text: 'Facturo igual y confío en la suerte.',
-        description: 'Improvisación - 1.0 pts'
+        text: 'Facturo igual y confío en la suerte.'
       },
       { 
         value: 'C', 
-        text: 'ChatGPT es mi asesoría de confianza.',
-        description: 'Evasión del tema - 0.5 pts'
+        text: 'ChatGPT es mi asesoría de confianza.'
       }
     ]
   },
@@ -88,18 +78,15 @@ const questions: Question[] = [
     options: [
       { 
         value: 'A', 
-        text: 'Los archivo meticulosamente para deducirlos.',
-        description: 'Máximo control - 2.0 pts'
+        text: 'Los archivo meticulosamente para deducirlos.'
       },
       { 
         value: 'B', 
-        text: 'Los acumulo sin orden pero los tengo.',
-        description: 'Acumulación - 1.5 pts'
+        text: 'Los acumulo sin orden pero los tengo.'
       },
       { 
         value: 'C', 
-        text: 'Desaparecen misteriosamente.',
-        description: 'Pérdida total - 0.5 pts'
+        text: 'Desaparecen misteriosamente.'
       }
     ]
   },
@@ -110,18 +97,15 @@ const questions: Question[] = [
     options: [
       { 
         value: 'A', 
-        text: 'Correcta y transparente, nos entendemos.',
-        description: 'Relación óptima - 2.0 pts'
+        text: 'Correcta y transparente, nos entendemos.'
       },
       { 
         value: 'B', 
-        text: 'De amor-odio: más odio que amor.',
-        description: 'Relación conflictiva - 1.0 pts'
+        text: 'De amor-odio: más odio que amor.'
       },
       { 
         value: 'C', 
-        text: 'Tensa: nunca sé si voy a salir viva.',
-        description: 'Relación problemática - 0.5 pts'
+        text: 'Tensa: nunca sé si voy a salir viva.'
       }
     ]
   }
@@ -229,9 +213,6 @@ export default function QuizScreen({ answers, onAnswer, onFinish }: QuizScreenPr
                     <div className="flex-1">
                       <span className="text-base md:text-lg lg:text-xl text-gray-700 font-medium block">
                         {option.text}
-                      </span>
-                      <span className="text-xs md:text-sm text-gray-500 mt-1 block">
-                        {option.description}
                       </span>
                     </div>
                   </div>
