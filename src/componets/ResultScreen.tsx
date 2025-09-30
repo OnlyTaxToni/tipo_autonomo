@@ -186,26 +186,11 @@ export default function ResultScreen({ answers, onRestart }: ResultScreenProps) 
 
             <div className="mb-6 md:mb-8 p-4 md:p-6 rounded-2xl bg-gray-50 border-2 border-gray-200">
               <h3 className="text-base md:text-lg font-bold text-gray-800 mb-3 md:mb-4">📊 Tu evaluación completa</h3>
-              <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-                <div className="text-center">
-                  <div className="flex items-center justify-center gap-2 mb-2">
-                    <span className="text-2xl md:text-4xl font-bold" style={{ color: '#434C8F' }}>
-                      {score.toFixed(1)}
-                    </span>
-                    <span className="text-lg md:text-2xl text-gray-500">/10.0</span>
-                  </div>
-                  <p className="text-sm text-gray-600">Puntuación obtenida</p>
-                </div>
-                <div className="text-center">
-                  <p className={`text-base md:text-lg font-semibold ${scoreCls} mb-1`}>
-                    {scoreRange}
-                  </p>
-                  <p className="text-sm text-gray-600">Rango de clasificación</p>
-                </div>
-              </div>
-              <p className={`text-center mt-3 md:mt-4 text-base md:text-lg font-medium ${scoreCls} px-2`}>
+              <div className="text-center">
+                <p className={`text-base md:text-lg font-medium ${scoreCls} px-2`}>
                 {evaluation}
               </p>
+              </div>
             </div>
 
             <div className="mb-6 md:mb-8 p-4 md:p-6 rounded-2xl" style={{ backgroundColor: '#D9DAFA' }}>
