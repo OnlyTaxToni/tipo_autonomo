@@ -39,7 +39,7 @@ const personalityProfiles: Record<1 | 2 | 3 | 4 | 5 | 6, PersonalityProfile> = {
     title: "La autónoma precavida",
     emoji: "🛡️",
     description: "Lo llevas bastante bien, aunque buscas asegurarte con ayuda. Siempre vas un paso por delante.",
-    scoreRange: "7.5-8.9 puntos",
+    scoreRange: "8.0-8.5 puntos",
     characteristics: [
       "Planifica con anticipación pero busca confirmación externa",
       "Busca asesoramiento profesional regularmente",
@@ -59,7 +59,7 @@ const personalityProfiles: Record<1 | 2 | 3 | 4 | 5 | 6, PersonalityProfile> = {
     title: "La autónoma apurada",
     emoji: "⏰",
     description: "Todo lo haces a última hora, pero cumples. Tu vida es un sprint cada trimestre.",
-    scoreRange: "6.0-7.4 puntos",
+    scoreRange: "6.5-7.5 puntos",
     characteristics: [
       "Trabaja bajo presión en fechas límite",
       "Experimenta estrés durante períodos fiscales",
@@ -79,7 +79,7 @@ const personalityProfiles: Record<1 | 2 | 3 | 4 | 5 | 6, PersonalityProfile> = {
     title: "La autónoma creativa",
     emoji: "🎨",
     description: "Te centras en lo que te motiva, descuidas lo fiscal. Tienes mil ideas pero la parte fiscal te aburre.",
-    scoreRange: "4.5-5.9 puntos",
+    scoreRange: "5.0-6.0 puntos",
     characteristics: [
       "Prioriza la creatividad sobre la administración",
       "Tiene múltiples proyectos en paralelo",
@@ -99,7 +99,7 @@ const personalityProfiles: Record<1 | 2 | 3 | 4 | 5 | 6, PersonalityProfile> = {
     title: "La autónoma improvisada",
     emoji: "🎯",
     description: "Vas aprendiendo sobre la marcha, con tropiezos. Te lanzaste sin plan pero te adaptas.",
-    scoreRange: "3.0-4.4 puntos",
+    scoreRange: "3.5-4.5 puntos",
     characteristics: [
       "Aprende de la experiencia práctica (a veces dolorosa)",
       "Se adapta rápidamente a los cambios y errores",
@@ -119,7 +119,7 @@ const personalityProfiles: Record<1 | 2 | 3 | 4 | 5 | 6, PersonalityProfile> = {
     title: "La autónoma pasota",
     emoji: "😅",
     description: "Pura evasión del tema fiscal. Vives al día, procrastinas, ignoras el tema hasta que explota.",
-    scoreRange: "Menos de 3.0 puntos",
+    scoreRange: "2.5-3.0 puntos",
     characteristics: [
       "Evita activamente pensar en temas fiscales",
       "Procrastina sistemáticamente las tareas administrativas",
@@ -140,11 +140,11 @@ const personalityProfiles: Record<1 | 2 | 3 | 4 | 5 | 6, PersonalityProfile> = {
 // FUNCIÓN PARA CALCULAR LA PUNTUACIÓN EXACTA CON EL NUEVO SISTEMA
 const calculateScore = (answers: Answer[]): number => {
   const questionScores = [
-    { A: 2.0, B: 1.2, C: 0.4 },  // Pregunta 1
-    { A: 2.0, B: 0.8, C: 0.6 },  // Pregunta 2
-    { A: 2.0, B: 0.6, C: 0.4 },  // Pregunta 3
-    { A: 2.0, B: 1.0, C: 0.2 },  // Pregunta 4
-    { A: 2.0, B: 1.4, C: 0.4 }   // Pregunta 5
+    { A: 2.0, B: 1.0, C: 0.5 },  // Pregunta 1
+    { A: 2.0, B: 1.5, C: 0.5 },  // Pregunta 2
+    { A: 2.0, B: 1.0, C: 0.5 },  // Pregunta 3
+    { A: 2.0, B: 1.5, C: 0.5 },  // Pregunta 4
+    { A: 2.0, B: 1.0, C: 0.5 }   // Pregunta 5
   ];
   
   return answers.reduce((sum, answer, index) => sum + questionScores[index][answer], 0);
@@ -153,20 +153,20 @@ const calculateScore = (answers: Answer[]): number => {
 // FUNCIÓN PARA OBTENER EL COLOR DE LA PUNTUACIÓN
 const getScoreColor = (score: number): string => {
   if (score >= 9.0) return 'text-green-600';
-  if (score >= 7.5) return 'text-blue-600';
-  if (score >= 6.0) return 'text-indigo-600';
-  if (score >= 4.5) return 'text-purple-600';
-  if (score >= 3.0) return 'text-orange-600';
+  if (score >= 8.0) return 'text-blue-600';
+  if (score >= 6.5) return 'text-indigo-600';
+  if (score >= 5.0) return 'text-purple-600';
+  if (score >= 3.5) return 'text-orange-600';
   return 'text-red-600';
 };
 
 // FUNCIÓN PARA OBTENER EL MENSAJE DE EVALUACIÓN
 const getEvaluationMessage = (score: number): string => {
   if (score >= 9.0) return '¡Excelente nivel de organización fiscal!';
-  if (score >= 7.5) return 'Muy buen nivel de planificación y precaución';
-  if (score >= 6.0) return 'Buen nivel pero con tendencia a la urgencia';
-  if (score >= 4.5) return 'Enfoque creativo que necesita más estructura';
-  if (score >= 3.0) return 'Necesitas apoyo para mejorar tu organización';
+  if (score >= 8.0) return 'Muy buen nivel de planificación y precaución';
+  if (score >= 6.5) return 'Buen nivel pero con tendencia a la urgencia';
+  if (score >= 5.0) return 'Enfoque creativo que necesita más estructura';
+  if (score >= 3.5) return 'Necesitas apoyo para mejorar tu organización';
   return 'Necesitas apoyo profesional urgente';
 };
 
