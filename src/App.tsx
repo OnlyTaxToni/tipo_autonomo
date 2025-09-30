@@ -35,30 +35,31 @@ function App() {
   };
 
   const finishQuiz = () => {
-    // Calcular puntuación total
+    // Calcular puntuación total (A=2, B=1, C=0.5)
     const scoreMap = { A: 2, B: 1, C: 0.5 };
     const totalScore = quizState.answers.reduce((sum, answer) => sum + scoreMap[answer], 0);
     
     let result: 1 | 2 | 3 | 4 | 5 | 6;
     
-    // Asignar resultado basado en rangos exactos sin solapamientos
-    // Puntuación mínima: 2.5, máxima: 10.0
-    if (totalScore >= 9.0) {
-      result = 1; // 🗂️ Autónoma organizada (9.0-10.0)
-    } else if (totalScore >= 7.5) {
-      result = 5; // 🛡️ Autónoma precavida (7.5-8.5)
-    } else if (totalScore >= 6.0) {
-      result = 2; // ⏰ Autónoma apurada (6.0-7.0)
-    } else if (totalScore >= 4.5) {
-      result = 4; // 🎨 Autónoma creativa (4.5-5.5)
-    } else if (totalScore >= 3.0) {
-      result = 6; // 🎯 Autónoma improvisada (3.0-4.0)
+    // Rangos exactos definidos:
+    // 9-10: Organizada (1), 7.5-8.5: Precavida (5), 6-7: Apurada (2)
+    // 4.5-5.5: Creativa (4), 3-4: Improvisada (6), 2.5: Pasota (3)
+    
+    if (totalScore >= 9 && totalScore <= 10) {
+      result = 1; // 🗂️ Autónoma organizada
+    } else if (totalScore >= 7.5 && totalScore < 9) {
+      result = 5; // 🛡️ Autónoma precavida
+    } else if (totalScore >= 6 && totalScore < 7.5) {
+      result = 2; // ⏰ Autónoma apurada
+    } else if (totalScore >= 4.5 && totalScore < 6) {
+      result = 4; // 🎨 Autónoma creativa
+    } else if (totalScore >= 3 && totalScore < 4.5) {
+      result = 6; // 🎯 Autónoma improvisada
     } else {
-      result = 3; // 😅 Autónoma pasota (2.5-2.9)
+      result = 3; // 😅 Autónoma pasota (2.5)
     }
 
-    // Debug: Mostrar puntuación en consola para verificación
-    console.log(`Puntuación total: ${totalScore}, Resultado asignado: ${result}`);
+    console.log(`Puntuación: ${totalScore}, Resultado: ${result}`);
 
     setQuizState(prev => ({
       ...prev,
