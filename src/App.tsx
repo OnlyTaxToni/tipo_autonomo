@@ -43,8 +43,9 @@ function App() {
     
     // Rangos exactos - ORDEN CRÍTICO: de mayor a menor puntuación
     if (totalScore >= 9) {
+      result = 1; // Autónoma organizada (9-10 puntos)
     // Lógica en cascada: ORDEN CRÍTICO de mayor a menor puntuación
-    if (totalScore >= 9) {
+    } else if (totalScore >= 9) {
       result = 1; // Autónoma organizada (9-10 puntos)
     } else if (totalScore >= 7.5) {
       result = 5; // Autónoma precavida (7.5-8.5 puntos)
