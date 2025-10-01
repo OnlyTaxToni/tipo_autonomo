@@ -1,5 +1,5 @@
 import React from 'react';
-import { RefreshCw } from 'lucide-react';
+import { RefreshCw, ExternalLink } from 'lucide-react';
 import type { Answer } from '../scoring';
 import { calculateScore, classifyProfile, PROFILE_THRESHOLDS, scoreColor as getScoreColor, evaluationMessage as getEvaluationMessage } from '../scoring';
 
@@ -289,10 +289,20 @@ export default function ResultScreen({ answers, onRestart }: ResultScreenProps) 
             </div>
           </div>
 
-          <div className="text-center mt-6 md:mt-8">
+          <div className="text-center mt-6 md:mt-8 space-y-4">
+            <a
+              href="https://www.onlytax.es"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 active:scale-95"
+            >
+              <ExternalLink className="w-5 h-5 md:w-6 md:h-6" />
+              Contactar con OnlyTax
+            </a>
+            
             <button
               onClick={onRestart}
-              className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white font-bold text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 active:scale-95"
+              className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white font-bold text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 active:scale-95"
             >
               <RefreshCw className="w-5 h-5 md:w-6 md:h-6" />
               Hacer el quiz otra vez
