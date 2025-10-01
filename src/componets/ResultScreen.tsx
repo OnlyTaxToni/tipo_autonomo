@@ -176,6 +176,17 @@ export default function ResultScreen({ answers, onRestart }: ResultScreenProps) 
       <div className="max-w-4xl mx-auto w-full flex items-center justify-center min-h-[calc(100vh-6rem)]">
         <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-8 lg:p-12 w-full transform hover:scale-[1.01] transition-transform duration-300">
           <div className="text-center mb-8">
+            {/* Imagen específica para autónoma precavida */}
+            {profileId === 2 && (
+              <div className="mb-6">
+                <img 
+                  src="/autonoma precavida.png" 
+                  alt="Autónoma precavida trabajando de forma organizada" 
+                  className="w-full max-w-sm mx-auto rounded-2xl"
+                />
+              </div>
+            )}
+            
             <div className="text-6xl md:text-8xl mb-4 md:mb-6 animate-bounce">{profile.emoji}</div>
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4" style={{ color: '#434C8F' }}>
               {profile.title}
