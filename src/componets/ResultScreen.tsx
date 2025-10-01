@@ -294,7 +294,7 @@ export default function ResultScreen({ answers, onRestart }: ResultScreenProps) 
               href="https://www.onlytax.es"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 active:scale-95"
+              className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white font-bold text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 active:scale-95"
             >
               <ExternalLink className="w-5 h-5 md:w-6 md:h-6" />
               Contactar con OnlyTax
@@ -302,7 +302,7 @@ export default function ResultScreen({ answers, onRestart }: ResultScreenProps) 
             
             <button
               onClick={onRestart}
-              className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white font-bold text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 active:scale-95"
+              className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-indigo-400 to-purple-500 hover:from-indigo-500 hover:to-purple-600 text-white font-bold text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 active:scale-95"
             >
               <RefreshCw className="w-5 h-5 md:w-6 md:h-6" />
               Hacer el quiz otra vez
