@@ -242,7 +242,6 @@ export default function ResultScreen({ answers, onRestart }: ResultScreenProps) 
               </div>
             )}
             
-            <div className="text-6xl md:text-8xl mb-4 md:mb-6 animate-bounce">{profile.emoji}</div>
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4" style={{ color: '#434C8F' }}>
               {profile.title}
             </h1>
