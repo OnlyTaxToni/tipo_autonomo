@@ -28,6 +28,15 @@ export default function WelcomeScreen({ onStart }: WelcomeScreenProps) {
       
       <div className="max-w-2xl mx-auto text-center flex items-center justify-center min-h-[calc(100vh-6rem)]">
         <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 transform hover:scale-105 transition-transform duration-300">
+          {/* Imagen visual de los tipos de autónomas */}
+          <div className="mb-8">
+            <img 
+              src="/tipos_autonomos.png" 
+              alt="Diferentes tipos de autónomas trabajando" 
+              className="w-full max-w-md mx-auto rounded-2xl shadow-lg"
+            />
+          </div>
+          
           <div className="mb-8">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 leading-tight">
               ¿QUÉ TIPO DE AUTÓNOMA ERES? 🖥️💰
