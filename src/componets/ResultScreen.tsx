@@ -15,9 +15,9 @@ interface PersonalityProfile {
 
 const personalityProfiles: Record<1 | 2 | 3 | 4 | 5 | 6, PersonalityProfile> = {
   1: { 
-    title: "El/La autónomo/a organizado/a", 
+    title: "La autónoma organizada", 
     emoji: "🗂️", 
-    description: "Meticuloso/a, planifica todo, tiene su Excel y las facturas al día. Eres el/la rey/reina del control fiscal.", 
+    description: "Meticulosa, planifica todo, tiene su Excel y las facturas al día. Eres la reina del control fiscal.", 
     characteristics: [
       "Mantiene registros detallados y digitalizados de todos sus movimientos",
       "Planifica con meses de anticipación sus obligaciones fiscales",
@@ -30,11 +30,11 @@ const personalityProfiles: Record<1 | 2 | 3 | 4 | 5 | 6, PersonalityProfile> = {
       "Explora herramientas de automatización fiscal avanzada",
       "Considera asesoría especializada para optimización de deducciones",
       "Mantén tu excelente sistema pero busca eficiencias adicionales",
-      "Podrías ayudar a otros/as autónomos/as con tu conocimiento"
+      "Podrías ayudar a otras autónomas con tu conocimiento"
     ] 
   },
   2: { 
-    title: "El/La autónomo/a precavido/a", 
+    title: "La autónoma precavida", 
     emoji: "🛡️", 
     description: "Lo llevas bastante bien, aunque buscas asegurarte con ayuda. Siempre vas un paso por delante.", 
     characteristics: [
@@ -53,7 +53,7 @@ const personalityProfiles: Record<1 | 2 | 3 | 4 | 5 | 6, PersonalityProfile> = {
     ] 
   },
   3: { 
-    title: "El/La autónomo/a apurado/a", 
+    title: "La autónoma apurada", 
     emoji: "⏰", 
     description: "Todo lo haces a última hora, pero cumples. Tu vida es un sprint cada trimestre.", 
     characteristics: [
@@ -72,7 +72,7 @@ const personalityProfiles: Record<1 | 2 | 3 | 4 | 5 | 6, PersonalityProfile> = {
     ] 
   },
   4: { 
-    title: "El/La autónomo/a creativo/a", 
+    title: "La autónoma creativa", 
     emoji: "🎨", 
     description: "Te centras en lo que te motiva, descuidas lo fiscal. Tienes mil ideas pero la parte fiscal te aburre.", 
     characteristics: [
@@ -91,7 +91,7 @@ const personalityProfiles: Record<1 | 2 | 3 | 4 | 5 | 6, PersonalityProfile> = {
     ] 
   },
   5: { 
-    title: "El/La autónomo/a improvisado/a", 
+    title: "La autónoma improvisada", 
     emoji: "🎯", 
     description: "Vas aprendiendo sobre la marcha, con tropiezos. Te lanzaste sin plan pero te adaptas.", 
     characteristics: [
@@ -110,7 +110,7 @@ const personalityProfiles: Record<1 | 2 | 3 | 4 | 5 | 6, PersonalityProfile> = {
     ] 
   },
   6: { 
-    title: "El/La autónomo/a pasota", 
+    title: "La autónoma pasota", 
     emoji: "😅", 
     description: "Pura evasión del tema fiscal. Vives al día, procrastinas, ignoras el tema hasta que explota.", 
     characteristics: [
@@ -181,7 +181,7 @@ export default function ResultScreen({ answers, onRestart }: ResultScreenProps) 
               <div className="mb-6">
                 <img 
                   src="/autonoma precavida.png" 
-                  alt="Autónomo/a precavido/a trabajando de forma organizada" 
+                  alt="Autónoma precavida trabajando de forma organizada" 
                   className="w-full max-w-sm mx-auto rounded-2xl"
                 />
               </div>
@@ -192,7 +192,7 @@ export default function ResultScreen({ answers, onRestart }: ResultScreenProps) 
               <div className="mb-6">
                 <img 
                   src="/autonoma_organizada.png" 
-                  alt="Autónomo/a organizado/a con sistema perfecto de trabajo" 
+                  alt="Autónoma organizada con sistema perfecto de trabajo" 
                   className="w-full max-w-sm mx-auto rounded-2xl"
                 />
               </div>
@@ -203,7 +203,7 @@ export default function ResultScreen({ answers, onRestart }: ResultScreenProps) 
               <div className="mb-6">
                 <img 
                   src="/autonoma_apurada.png" 
-                  alt="Autónomo/a apurado/a trabajando contra reloj" 
+                  alt="Autónoma apurada trabajando contra reloj" 
                   className="w-full max-w-sm mx-auto rounded-2xl"
                 />
               </div>
@@ -214,7 +214,7 @@ export default function ResultScreen({ answers, onRestart }: ResultScreenProps) 
               <div className="mb-6">
                 <img 
                   src="/autonoma_creativa.png" 
-                  alt="Autónomo/a creativo/a enfocado/a en sus proyectos artísticos" 
+                  alt="Autónoma creativa enfocada en sus proyectos artísticos" 
                   className="w-full max-w-sm mx-auto rounded-2xl"
                 />
               </div>
@@ -225,7 +225,7 @@ export default function ResultScreen({ answers, onRestart }: ResultScreenProps) 
               <div className="mb-6">
                 <img 
                   src="/autonoma_improvisada.png" 
-                  alt="Autónomo/a improvisado/a aprendiendo sobre la marcha" 
+                  alt="Autónoma improvisada aprendiendo sobre la marcha" 
                   className="w-full max-w-sm mx-auto rounded-2xl"
                 />
               </div>
@@ -236,7 +236,7 @@ export default function ResultScreen({ answers, onRestart }: ResultScreenProps) 
               <div className="mb-6">
                 <img 
                   src="/autonoma_pasota.png" 
-                  alt="Autónomo/a pasota evitando temas fiscales" 
+                  alt="Autónoma pasota evitando temas fiscales" 
                   className="w-full max-w-sm mx-auto rounded-2xl"
                 />
               </div>
