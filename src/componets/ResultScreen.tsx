@@ -307,7 +307,7 @@ export default function ResultScreen({ answers, onRestart }: ResultScreenProps) 
                   </div>
                   <div className="text-left">
                     <div className="font-black text-xl md:text-2xl">Contactar con OnlyTax</div>
-                    <div className="text-sm md:text-base opacity-90 font-medium">Tu solución fiscal personalizada</div>
+                    <div className="text-sm md:text-base opacity-90 font-medium">Asesoría fiscal para creadores y emprendedores digitales</div>
                   </div>
                 </div>
               </a>
