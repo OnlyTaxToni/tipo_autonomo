@@ -290,23 +290,39 @@ export default function ResultScreen({ answers, onRestart }: ResultScreenProps) 
           </div>
 
           <div className="text-center mt-6 md:mt-8 space-y-4">
-            <a
-              href="https://www.onlytax.es"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white font-bold text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 active:scale-95"
-            >
-              <ExternalLink className="w-5 h-5 md:w-6 md:h-6" />
-              Contactar con OnlyTax
-            </a>
+            {/* CTA Principal - OnlyTax */}
+            <div className="mb-6">
+              <a
+                href="https://www.onlytax.es"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 md:gap-4 bg-gradient-to-r from-purple-500 via-indigo-600 to-purple-700 hover:from-purple-600 hover:via-indigo-700 hover:to-purple-800 text-white font-bold text-xl md:text-2xl px-8 md:px-12 py-4 md:py-5 rounded-2xl shadow-2xl transform hover:scale-110 hover:-translate-y-1 transition-all duration-300 active:scale-105 border-2 border-white/20 backdrop-blur-sm relative overflow-hidden group"
+              >
+                {/* Efecto de brillo animado */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                
+                <div className="relative z-10 flex items-center gap-3 md:gap-4">
+                  <div className="p-2 bg-white/20 rounded-full">
+                    <ExternalLink className="w-6 h-6 md:w-7 md:h-7" />
+                  </div>
+                  <div className="text-left">
+                    <div className="font-black text-xl md:text-2xl">Contactar con OnlyTax</div>
+                    <div className="text-sm md:text-base opacity-90 font-medium">Tu solución fiscal personalizada</div>
+                  </div>
+                </div>
+              </a>
+            </div>
             
-            <button
-              onClick={onRestart}
-              className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-indigo-400 to-purple-500 hover:from-indigo-500 hover:to-purple-600 text-white font-bold text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 active:scale-95"
-            >
-              <RefreshCw className="w-5 h-5 md:w-6 md:h-6" />
-              Hacer el quiz otra vez
-            </button>
+            {/* Botón Secundario - Repetir Quiz */}
+            <div>
+              <button
+                onClick={onRestart}
+                className="inline-flex items-center gap-2 md:gap-3 bg-white hover:bg-gray-50 text-gray-700 hover:text-gray-900 font-semibold text-base md:text-lg px-6 md:px-8 py-3 md:py-4 rounded-xl border-2 border-gray-200 hover:border-gray-300 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 active:scale-95"
+              >
+                <RefreshCw className="w-5 h-5 md:w-6 md:h-6 text-gray-500" />
+                Hacer el quiz otra vez
+              </button>
+            </div>
           </div>
         </div>
       </div>
