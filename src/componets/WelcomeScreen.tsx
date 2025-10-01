@@ -33,7 +33,7 @@ export default function WelcomeScreen({ onStart }: WelcomeScreenProps) {
             <img 
               src="/tipos_autonomos.png" 
               alt="Diferentes tipos de autónomas trabajando" 
-              className="w-full max-w-md mx-auto rounded-2xl shadow-lg"
+              className="w-full max-w-md mx-auto rounded-2xl"
             />
           </div>
           
