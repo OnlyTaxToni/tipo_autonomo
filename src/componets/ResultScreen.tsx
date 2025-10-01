@@ -198,6 +198,50 @@ export default function ResultScreen({ answers, onRestart }: ResultScreenProps) 
               </div>
             )}
             
+            {/* Imagen específica para autónoma apurada */}
+            {profileId === 3 && (
+              <div className="mb-6">
+                <img 
+                  src="/autonoma_apurada.png" 
+                  alt="Autónoma apurada trabajando contra reloj" 
+                  className="w-full max-w-sm mx-auto rounded-2xl"
+                />
+              </div>
+            )}
+            
+            {/* Imagen específica para autónoma creativa */}
+            {profileId === 4 && (
+              <div className="mb-6">
+                <img 
+                  src="/autonoma_creativa.png" 
+                  alt="Autónoma creativa enfocada en sus proyectos artísticos" 
+                  className="w-full max-w-sm mx-auto rounded-2xl"
+                />
+              </div>
+            )}
+            
+            {/* Imagen específica para autónoma improvisada */}
+            {profileId === 5 && (
+              <div className="mb-6">
+                <img 
+                  src="/autonoma_improvisada.png" 
+                  alt="Autónoma improvisada aprendiendo sobre la marcha" 
+                  className="w-full max-w-sm mx-auto rounded-2xl"
+                />
+              </div>
+            )}
+            
+            {/* Imagen específica para autónoma pasota */}
+            {profileId === 6 && (
+              <div className="mb-6">
+                <img 
+                  src="/autonoma_pasota.png" 
+                  alt="Autónoma pasota evitando temas fiscales" 
+                  className="w-full max-w-sm mx-auto rounded-2xl"
+                />
+              </div>
+            )}
+            
             <div className="text-6xl md:text-8xl mb-4 md:mb-6 animate-bounce">{profile.emoji}</div>
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4" style={{ color: '#434C8F' }}>
               {profile.title}
